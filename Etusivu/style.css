@@ -1,0 +1,293 @@
+/* ========================================================= */
+/* ================== YLEISET ASETUKSET ===================== */
+/* ========================================================= */
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  color: #222;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================================================= */
+/* ================== NAVIGAATIO ============================ */
+/* ========================================================= */
+
+/* Päänavin tyyli */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navin sisältö (logo + linkit samalle riville) */
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* Logo vasemmalle, linkit oikealle */
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* Logo vasemmalle */
+.site-brand img {
+  height: 60px;
+}
+
+/* Navilinkit (desktop-näkymä) */
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #b97c2c; /* korosta hoverissa */
+}
+
+/* Hamburger-nappi (piilotetaan desktopissa) */
+#navbar-show-btn,
+#navbar-close-btn {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* näkyy vain mobiilissa */
+}
+
+/* Collapsible menu (mobiili) */
+#navbar-collapse {
+  display: flex;
+}
+
+/* ========================================================= */
+/* ================== MOBIILINAVI =========================== */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  /* Piilota desktop-linkit oletuksena mobiilissa */
+  #navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  /* Näytä avaus- ja sulkunapit */
+  #navbar-show-btn {
+    display: block;
+  }
+
+  #navbar-close-btn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  /* Kun menu on aktiivinen (esim. JS lisää .open-luokan) */
+  #navbar-collapse.open {
+    right: 0;
+  }
+
+  /* Linkit pystysuunnassa mobiilissa */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* ========================================================= */
+/* ================== ABOUT ME -OSIO ======================== */
+/* ========================================================= */
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-family: "Lora", serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================================= */
+/* ================== PALVELUKORTIT ========================= */
+/* ========================================================= */
+
+.services-section {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.services-section h2 {
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Kortin rakenne */
+.service-card {
+  width: 220px;
+  height: 280px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Taustakuva pseudo-elementtinä */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  z-index: 0;
+  transform: scale(1);
+}
+
+/* Hover: kortti nousee ja kuva zoomaa */
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.service-card:hover::before {
+  transform: scale(1.1);
+}
+
+/* Otsikko kortin alaosassa */
+.service-card h3 {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 100%;
+  padding: 1rem 0;
+  margin: 0;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.service-card:hover h3 {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ========================================================= */
+/* ============ KORTTIEN YKSILÖLLISET KUVAT ================ */
+/* ========================================================= */
+
+.kortti-haat::before {
+  background-image: url("../img/haat.jpg");
+}
+
+.kortti-juhlat::before {
+  background-image: url("../img/juhlat.jpg");
+}
+
+.kortti-yritykset::before {
+  background-image: url("../img/yritykset.jpg");
+}
+
+.kortti-artistit::before {
+  background-image: url("../img/artistit.jpg");
+}
+
+.kortti-henkilo::before {
+  background-image: url("../img/henkilokuvaus.jpg");
+}
+
+/* ========================================================= */
+/* ================== RESPONSIVISUUS ======================== */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 90%;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
