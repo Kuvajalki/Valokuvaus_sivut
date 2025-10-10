@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuvajälki – Etusivu</title>
+
+  <!-- Fontit ja ikonit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Tyylit (päivitä polut tarvittaessa projektissasi) -->
+  <link rel="stylesheet" href="../Haat/style.css" />
+  <link rel="stylesheet" href="../Haat/utility.css" />
+  <link rel="stylesheet" href="../Haat/responsive.css" />
+</head>
+
+<body>
+
+  <!-- Navbar (sama kuin aiemmin) -->
+  <nav class="navbar">
+    <div class="container flex">
+      <a href="../index.html" class="site-brand">
+        <img src="../img/logo.svg" alt="Kuvajälki logo" style="height:40px;">
+      </a>
+
+      <!-- Open (hamburger) button -->
+      <button type="button" id="navbar-show-btn" aria-label="Avaa valikko">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible menu -->
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" aria-label="Sulje valikko">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Etusivu</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Henkilokuvaus/index.html" class="nav-link">Henkilökuvaus</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Perhekuvaus/index.html" class="nav-link">Perhekuvaus</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Lemmikkikuvaus/index.html" class="nav-link">Lemmikkikuvaus</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Haat/index.html" class="nav-link">Häät</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Yhteystiedot/index.html" class="nav-link">Yhteystiedot</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /Navbar -->
+
+  <!-- Etusivulla ei tarvita hää-headeria, poistettu header-hero -->
+
+  <main>
+    <!-- About Me Section -->
+    <section class="about-section container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Tutustu minuun</h2>
+          <p>
+            Olen tarinankertoja kameran takana. Kuvaan luonnollista valoa hyödyntäen ja keskityn aitoihin hetkiin,
+            ilmeisiin ja tunnelmiin. Työni kattaa henkilö- ja perhekuvaukset, lemmikit, tapahtumat sekä yritysten
+            brändikuvat. Tavoitteeni on tehdä kuvauskokemuksesta sinulle helppo, lämmin ja laadukas.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="../img/about-me.jpg" alt="Valokuvaaja työssään">
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Cards Section -->
+    <section class="services-section container">
+      <h2>Kuvauspalveluni</h2>
+      <div class="card-container">
+        <div class="service-card kortti-haat">
+          <h3>Häät</h3>
+        </div>
+        <div class="service-card kortti-juhlat">
+          <h3>Juhlat & Tilaisuudet</h3>
+        </div>
+        <div class="service-card kortti-yritykset">
+          <h3>Yritykset</h3>
+        </div>
+        <div class="service-card kortti-artistit">
+          <h3>Artistit</h3>
+        </div>
+        <div class="service-card kortti-henkilo">
+          <h3>Henkilö- & Eläinkuvaus</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Oma skripti (valikko ym.) -->
+  <script src="script.js"></script>
+</body>
+
+</html>

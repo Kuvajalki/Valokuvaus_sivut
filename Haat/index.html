@@ -2,33 +2,79 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kuvajälki – Häät</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../Haat/style.css" />
+  <link rel="stylesheet" href="../Haat/utility.css" />
+  <link rel="stylesheet" href="../Haat/responsive.css" />
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<header>
-    <!---Navbar-->
-  <nav class ="navbar">
-    <div class="container flex">
-    <a href="../index.html" class="site-brand">Kuvajälki</a>
-    <ul>
-      <li><a href="../index.html">Etusivu</a></li>
-      <li><a href="../Henkilokuvaus/index.html">Henkilökuvaus</a></li>
-      <li><a href="../Perhekuvaus/index.html">Perhekuvaus</a></li>
-      <li><a href="../Lemmikkikuvaus/index.html">Lemmikkikuvaus</a></li>
-      <li><a href="../Haat/index.html">Häät</a></li>
-      <li><a href="../Yhteystiedot/index.html">Yhteystiedot</a></li>
-    </ul>
-    </div>
-  </nav>
-  
-</header>
 
 <body>
-    
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container flex">
+        <a href="../index.html" class="site-brand">
+          <img src="../img/logo.svg" alt="Kuvajälki logo" style="height:40px;">
+        </a>
+
+        <!-- Open (hamburger) button -->
+        <button type="button" id="navbar-show-btn" aria-label="Avaa valikko">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible menu -->
+        <div id="navbar-collapse">
+          <button type="button" id="navbar-close-btn" aria-label="Sulje valikko">
+            <i class="fas fa-times"></i>
+          </button>
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">Etusivu</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Henkilokuvaus/index.html" class="nav-link">Henkilökuvaus</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Perhekuvaus/index.html" class="nav-link">Perhekuvaus</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Lemmikkikuvaus/index.html" class="nav-link">Lemmikkikuvaus</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Haat/index.html" class="nav-link">Häät</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Yhteystiedot/index.html" class="nav-link">Yhteystiedot</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+  <header class="flex">
+    <div class="container">
+      <div class="header-title">
+        <h1>Hääkuvaus</h1>
+      </div>
+    </div> 
+      
+
+
+  </header>
+  
+  <main>
+
+</main>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
