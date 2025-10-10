@@ -1,8 +1,358 @@
+/* ========================================================= */
+/* ================== YLEISET ASETUKSET ===================== */
+/* ========================================================= */
+html, body { height:100%; }
+body { display:flex; flex-direction:column; min-height:100vh; }
+main { flex:1 0 auto; }
 
-:root {
-  --green: #1ec6b6;
-  --light-grey: #f7f7f7;
-  --dark: #0e1010;
-  --trans: all 0.3s ease-in-out;
+
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  color: #222;
 }
 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+main {
+  padding-bottom: 40px; /* tilaa footerille */
+}
+
+/* ========================================================= */
+/* ================== NAVIGAATIO ============================ */
+/* ========================================================= */
+
+/* Päänavin tyyli */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navin sisältö (logo + linkit samalle riville) */
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* Logo vasemmalle, linkit oikealle */
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* Logo vasemmalle */
+.site-brand img {
+  height: 60px;
+}
+
+/* Navilinkit (desktop-näkymä) */
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #b97c2c; /* korosta hoverissa */
+}
+
+/* Hamburger-nappi (piilotetaan desktopissa) */
+#navbar-show-btn,
+#navbar-close-btn {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* näkyy vain mobiilissa */
+}
+
+/* Collapsible menu (mobiili) */
+#navbar-collapse {
+  display: flex;
+}
+
+/* ========================================================= */
+/* ================== MOBIILINAVI =========================== */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  /* Piilota desktop-linkit oletuksena mobiilissa */
+  #navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  /* Näytä avaus- ja sulkunapit */
+  #navbar-show-btn {
+    display: block;
+  }
+
+  #navbar-close-btn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  /* Kun menu on aktiivinen (esim. JS lisää .open-luokan) */
+  #navbar-collapse.open {
+    right: 0;
+  }
+
+  /* Linkit pystysuunnassa mobiilissa */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== HERO HEADER ===== */
+.hero-header {
+  padding: 32px 0 64px;             /* väliä navin ja seuraavan osion kanssa */
+  background: #ffffff;               /* sivun tausta valkoinen */
+}
+
+.hero-header .container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 16px; }
+
+.hero-wrap {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;  /* teksti aavistuksen leveämpi */
+  gap: 40px;
+  align-items: center;
+  background: #ECECEC;              /* harmaa laatikko kuvan mukaisesti */
+  border-radius: 14px;
+  padding: 36px 40px;
+}
+
+.hero-copy h1 {
+  margin: 0 0 18px;
+  font-size: clamp(0.95rem, 1.5vw + 0.5rem, 1.25rem); /* kompakti, lähellä mockupia */
+  line-height: 1.6;
+  font-weight: 600;
+  color: #222;                       /* tumma teksti harmaalla */
+  max-width: 38ch;                   /* pituus hallintaan kuten kuvassa */
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* napit */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+.btn--dark {
+  background: #5c5c5c;   /* tumma harmaa kuten kuvassa */
+  color: #fff;
+}
+
+.btn--light {
+  background: #f2f2f2;   /* vaalea harmaa nappi */
+  color: #222;
+  box-shadow: inset 0 0 0 1px #d9d9d9;  /* kevyt reunaviiva */
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+/* oikean puolen kuva */
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+}
+
+/* ===== Responsiivisuus ===== */
+@media (max-width: 980px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    gap: 18px;
+  }
+  .hero-copy h1 { max-width: 60ch; }
+}
+
+/* ========================================================= */
+/* ================== RESPONSIVISUUS ======================== */
+/* ========================================================= */
+
+@media (max-width: 980px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 24px;
+  }
+  .hero-copy h1 {
+    max-width: 60ch;
+    text-align: center;
+  }
+  .hero-actions { justify-content: center; }
+}
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  background: #a79f93;              /* taustan sävy – säädä halutuksi */
+  color: #1d1d1b;                    /* teksti tumma */
+  padding: 2.5rem 0 1.25rem;
+  border-top: 1px solid #1d1d1b;     /* ohut viiva aivan yläreunaan */
+
+  /* --- Sticky footer: työnnä footer alas, kun runko on flex-kolumni --- */
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;  /* vasen hieman leveämpi */
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer-logo {
+  height: 48px;                      /* footerissa hieman pienempi/kompakti */
+  width: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.footer-tagline {
+  font-family: "Lora", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.site-footer h4 {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+
+.footer-services ul,
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-services ul li {
+  text-align: center;
+  margin: 0.25rem 0;
+}
+
+.footer-services a {
+  color: #1d1d1b;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.footer-services a:hover {
+  text-decoration: underline;
+}
+
+/* Sosiaalilinkit ikonirivinä */
+.footer-social ul {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social a {
+  color: #1d1d1b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #1d1d1b;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-social a:hover {
+  background: #1d1d1b;
+  color: #a79f93;
+  transform: translateY(-2px);
+}
+
+.footer-rule {
+  border: none;
+  border-top: 1px solid #6f6a62;  /* ohut harmaa viiva */
+  margin: 1.75rem 0 0.75rem;
+  width: min(720px, 90%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ---------- Footerin responsiivisuus ---------- */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;   /* pinotaan */
+    text-align: center;
+  }
+  .footer-brand {
+    display: grid;
+    justify-items: center;
+  }
+  .footer-tagline {
+    max-width: 28ch;
+  }
+}

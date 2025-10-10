@@ -1,12 +1,8 @@
-// Simple dropdown toggle for navbar (works on desktop and mobile)
-document.addEventListener('DOMContentLoaded', function() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-      navToggle.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('open');
-    });
-  }
+// Mobiilivalikon avaaminen ja sulkeminen
+document.querySelector("#navbar-show-btn").addEventListener("click", () => {
+  document.querySelector("#navbar-collapse").classList.add("open");
+});
+
+document.querySelector("#navbar-close-btn").addEventListener("click", () => {
+  document.querySelector("#navbar-collapse").classList.remove("open");
 });
