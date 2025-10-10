@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuvajälki – Juhlat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Juhlat/style.css" />
+  <link rel="stylesheet" href="../Juhlat/utility.css" />
+  <link rel="stylesheet" href="../Juhlat/responsive.css" />
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Navbar (sama kuin aiemmin) -->
+  <nav class="navbar">
+    <div class="container flex">
+      <a href="../Etusivu/" class="site-brand">
+        <img src="../img/logo.svg" alt="Kuvajälki logo" />
+      </a>
+
+      <!-- Open (hamburger) button -->
+      <button type="button" id="navbar-show-btn" aria-label="Avaa valikko">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible menu -->
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" aria-label="Sulje valikko">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="navbar-nav">
+  
+          <li class="nav-item">
+            <a href="../Haat/index.html" class="nav-link">Häät</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Juhlat/index.html" class="nav-link">Juhlat & Tilaisuudet</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Yritykset/index.html" class="nav-link">Yritykset</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Artistit/index.html" class="nav-link">Artistit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Henkilo/index.html" class="nav-link">Henkilö- & Eläinkuvaus</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar end -->
+
+  <!-- HERO HEADER -->
+<section class="hero-header">
+  <div class="container">
+    <div class="hero-wrap">
+      <!-- Vasen: teksti + napit -->
+      <div class="hero-copy">
+        <h1>
+          Juhlahetket ja tilaisuudet, jotka jäävät mieleen. Syntymäpäivistä merkkipäiviin, yritystilaisuuksista perhejuhliin - 
+          tallennamme elämän tärkeät hetket kauniisti ja luonnollisesti. Jokainen tilaisuus ansaitsee ammattilaisen kosketuksen.
+        </h1>
+
+        <div class="hero-actions">
+          <a href="#galleria" class="btn btn--dark">Selaa Galleriaa</a>
+          <a href="#hinnasto" class="btn btn--light">Tutustu hinnastoon</a>
+        </div>
+      </div>
+
+      <!-- Oikea: kuva -->
+      <figure class="hero-media">
+        <img
+          src="../img/Juhlat-vaaka.jpg"
+          alt="Iloinen kuva juhlijoista tötteröhatut päässä"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- /HERO HEADER -->
+      
+
+
+  </header>
+  
+  <main>
+    <div id="teksti1">
+        <h2>
+        Juhlahetket ja tilaisuudet, jotka jäävät mieleen
+        Syntymäpäivistä merkkipäiviin, yritystilaisuuksista perhejuhliin - tallennamme elämän tärkeät hetket kauniisti ja luonnollisesti. Jokainen tilaisuus ansaitsee ammattilaisen kosketuksen.
+        </h2>
+    </div>
+    <section class="portfolio">
+        <h2>Portfolio</h2>
+        <p>
+        Jokainen juhla on ainutlaatuinen. Katso miten olen tallentanut erilaisia
+        tilaisuuksia – syntymäpäiviä, merkkipäiviä, valmistujaisjuhlia ja muita
+        tärkeitä hetkiä luonnollisella ja eläväisellä tyylilläni.
+        </p>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-item"></div>
+        <div class="portfolio-item"></div>
+        <div class="portfolio-item"></div>
+        <div class="portfolio-item"></div>
+        <div class="portfolio-item"></div>
+        <div class="portfolio-item"></div>
+    </div>
+
+    <button class="portfolio-btn">Tutustu Galleriaan</button>
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <!-- VASEN: logo + kuvaus -->
+    <div class="footer-brand">
+      <img src="../img/logo.svg" alt="Kuvajälki" class="footer-logo">
+      <p class="footer-tagline">
+        Ammattitaitoista valokuvausta elämän tärkeimmille hetkille.
+      </p>
+    </div>
+
+    <!-- KESKI: Palvelut-linkit -->
+    <nav class="footer-services" aria-label="Palvelut">
+      <h4>Palvelut</h4>
+      <ul>
+        <li><a href="../Haat/index.html">Häät</a></li>
+        <li><a href="../Juhlat/index.html">Juhlat &amp; Tilaisuudet</a></li>
+        <li><a href="../Yritykset/index.html">Yritykset</a></li>
+        <li><a href="../Artistit/index.html">Artistit</a></li>
+        <li><a href="../Henkilokuvaus/index.html">Henkilö &amp; Eläinkuvaus</a></li>
+      </ul>
+    </nav>
+
+    <!-- OIKEA: Seuraa, tässä ikonit sosiaalisiin medioihin -->
+    <div class="footer-social">
+      <h4>Seuraa</h4>
+      <ul>
+        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a></li>
+        <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="footer-rule" />
+
+  <div class="container footer-bottom">
+    <p>Kuvajälki 2025. Kaikki oikeudet pidetään</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
