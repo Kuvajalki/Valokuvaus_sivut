@@ -63,6 +63,7 @@ main {
 
 .nav-link:hover {
   color: #b97c2c; /* korosta hoverissa */
+  text-decoration: underline;
 }
 
 /* Hamburger-nappi (piilotetaan desktopissa) */
