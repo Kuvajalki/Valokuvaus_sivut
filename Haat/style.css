@@ -429,8 +429,8 @@ section.portfolio .portfolio-item {
 
 /* ===== PROSESSI / NÄIN ETENEMME ===== */
 .process {
-  background: #ececec;          /* vaalea harmaa tausta kuten mockup */
-  padding: 48px 0 56px;
+  background: transparent;        /* ei koko ruudun taustaa */
+  padding: 48px 0 56px;           /* vain pystyväli ympärille */
 }
 
 .process .container {
@@ -438,6 +438,11 @@ section.portfolio .portfolio-item {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+
+  /* tausta ja sisäpadding siirretään containerille */
+  background: #ececec;            /* vaalea harmaa laatikko */
+  padding: 36px 0 44px;           /* sisäpaddaus kuten aiemmin */
+  border-radius: 0;               /* halutessasi 12px pehmennystä */
 }
 
 .process h2 {
@@ -447,19 +452,18 @@ section.portfolio .portfolio-item {
 
 /* Grid neljälle vaiheelle */
 .process-grid {
-  list-style: none;             /* käytetään <ol>, mutta piilotetaan listamerkit */
+  list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;                 /* keskitys */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   align-items: start;
+  max-width: 1000px;              /* hieman kapeampi sisältö, vapaaehtoinen */
 }
 
 /* Yksittäinen vaihe */
-.process-step {
-  padding: 0 10px;
-}
+.process-step { padding: 0 10px; }
 
 /* Numeroympyrä */
 .step-badge {
@@ -467,7 +471,7 @@ section.portfolio .portfolio-item {
   height: 84px;
   margin: 0 auto 14px;
   border-radius: 50%;
-  background: #cfcfcf;          /* harmaa ympyrä */
+  background: #cfcfcf;
   display: grid;
   place-items: center;
   font-weight: 700;
@@ -478,18 +482,19 @@ section.portfolio .portfolio-item {
 /* Vaiheen otsikko + teksti */
 .process-step h3 {
   margin: 0 0 6px;
-  font-weight: 700;             /* lihavoitu otsikko kuten kuvassa */
+  font-weight: 700;
 }
 
 .process-step p {
   margin: 0;
   line-height: 1.55;
-  max-width: 30ch;              /* rivimitta siistiksi */
+  max-width: 30ch;
   margin-left: auto;
   margin-right: auto;
-  font-family: "Lora", serif;   /* sama body-tyyli */
+  font-family: "Lora", serif;
   color: #2b2b2b;
 }
+
 
 
 
