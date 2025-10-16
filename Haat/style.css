@@ -335,7 +335,9 @@ section.portfolio .portfolio-item {
 .portfolio-btn:active { transform: translateY(0); }
 
 
-/* ===== HÄÄT: HINNASTO / PRICING ===== */
+/* ========================================= */
+/* ======== Hinnasto ======= */
+/* ========================================= */
 
 .pricing h2 {
   font-size: 28px;
@@ -426,8 +428,10 @@ section.portfolio .portfolio-item {
 .btn-quote:hover { transform: translateY(-1px); }
 .btn-quote:active { transform: translateY(0); }
 
+/* ========================================= */
+/* ======== PROSESSI / NÄIN ETENEMME ======= */
+/* ========================================= */
 
-/* ===== PROSESSI / NÄIN ETENEMME ===== */
 .process {
   background: transparent;        /* ei koko ruudun taustaa */
   padding: 48px 0 56px;           /* vain pystyväli ympärille */
