@@ -218,11 +218,49 @@ main {
     max-width: 800px;                /* Prevent text from being too wide */
 }
 
-.portfolio {
-  background-color: #f2f2f2;         /* light gray background */
-  text-align: center;
-  padding: 80px 20px;
+/* --- FORSSIETUT OVERRIDE'T PORTFOLIOLLE --- */
+section.portfolio {
+  padding: 80px 0 !important;      /* vain pystysuunnassa, ei “täysleveää taustaa” */
+  background: transparent !important;
 }
+
+/* Pakotetaan .container samaksi leveysksi kuin muu sivu */
+section.portfolio > .container {
+  width: 90% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 !important;           /* varmistetaan ettei ulkokuori tuo taustaa */
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Harmaa laatikko vain sisälaatikkoon – EI koko näytölle */
+section.portfolio > .container > .portfolio-box {
+  background: #f2f2f2 !important;
+  text-align: center !important;
+  padding: 80px 20px !important;
+  border-radius: 12px !important;
+  margin: 0 auto !important;
+}
+
+/* Grid voi täyttää sisälaatikon – poista max-width, jos haluat */
+section.portfolio .portfolio-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 40px !important;
+  margin: 0 auto 60px auto !important;
+  /* max-width: 900px;  // jätä pois, jos haluat leveämmäksi */
+}
+
+/* Varmistetaan, ettei joku yleissääntö leikkaa kulmia pois */
+section.portfolio .portfolio-item {
+  background-color: #ccc !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 8px !important;
+}
+
 
 .portfolio h2 {
   font-size: 28px;
@@ -235,21 +273,6 @@ main {
   max-width: 700px;
   margin: 0 auto 50px auto;
   line-height: 1.6;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 900px;
-  margin: 0 auto 60px auto;
-}
-
-.portfolio-item {
-  background-color: #ccc;             /* placeholder gray box */
-  width: 100%;
-  aspect-ratio: 1 / 1;                /* keep square shape */
-  border-radius: 8px;
 }
 
 .portfolio-btn {
