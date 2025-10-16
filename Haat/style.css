@@ -208,6 +208,66 @@ main {
   object-fit: cover;
 }
 
+/* Main */
+#teksti1 {
+    text-align: center;
+    font-size: 18px;                 /* Comfortable reading size */
+    line-height: 1.6;                /* Good line spacing */
+    padding: 40px 30px 80px 30px;              /* Vertical and horizontal padding */
+    margin: 0 auto;                  /* Center block in layout */
+    max-width: 800px;                /* Prevent text from being too wide */
+}
+
+.portfolio {
+  background-color: #f2f2f2;         /* light gray background */
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.portfolio h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.portfolio p {
+  font-size: 16px;
+  font-weight: bold;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  line-height: 1.6;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+}
+
+.portfolio-item {
+  background-color: #ccc;             /* placeholder gray box */
+  width: 100%;
+  aspect-ratio: 1 / 1;                /* keep square shape */
+  border-radius: 8px;
+}
+
+.portfolio-btn {
+    background-color: #c1c1c1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+.portfolio-btn:hover { transform: translateY(-1px); }
+.portfolio-btn:active { transform: translateY(0); }
+
+
 /* ===== Responsiivisuus ===== */
 @media (max-width: 980px) {
   .hero-wrap {
