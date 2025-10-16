@@ -255,7 +255,7 @@ main {
 /* Main */
 #teksti1 {
     text-align: center;
-    font-size: 18px;                 /* Comfortable reading size */
+    font-size: 12px;                 /* Comfortable reading size */
     line-height: 1.6;                /* Good line spacing */
     padding: 40px 30px 80px 30px;              /* Vertical and horizontal padding */
     margin: 0 auto;                  /* Center block in layout */
@@ -491,6 +491,26 @@ section.portfolio .portfolio-item {
   color: #2b2b2b;
 }
 
+
+
+/* ========================================================= */
+/* ================== RESPONSIVISUUS ======================== */
+/* ========================================================= */
+
+@media (max-width: 980px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 24px;
+  }
+  .hero-copy h1 {
+    max-width: 60ch;
+    text-align: center;
+    
+  }
+  .hero-actions { justify-content: center; }
+}
+
 /* Responsiivisuus */
 @media (max-width: 980px) {
   .process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -521,23 +541,6 @@ section.portfolio .portfolio-item {
     gap: 18px;
   }
   .hero-copy h1 { max-width: 60ch; }
-}
-
-/* ========================================================= */
-/* ================== RESPONSIVISUUS ======================== */
-/* ========================================================= */
-
-@media (max-width: 980px) {
-  .hero-wrap {
-    grid-template-columns: 1fr;
-    padding: 24px;
-    gap: 24px;
-  }
-  .hero-copy h1 {
-    max-width: 60ch;
-    text-align: center;
-  }
-  .hero-actions { justify-content: center; }
 }
 
 /* ---------- FOOTER ---------- */
