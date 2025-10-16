@@ -241,8 +241,8 @@ main {
 
 /* ===== KUVAPUOLI ===== */
 .hero-media {
-  margin: 8px;              /* pieni reuna kortin sisällä */
-  border-radius: 10px;
+  margin: 0px;              /* pieni reuna kortin sisällä */
+  border-radius: 0px;
   overflow: hidden;
 }
 
