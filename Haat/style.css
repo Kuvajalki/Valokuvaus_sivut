@@ -167,12 +167,14 @@ main {
 }
 
 /* ===== TEKSTIPUOLI ===== */
+
 .hero-copy {
-  padding: 72px 56px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end; /* 👈 vie tekstin ja napit alas */
+  padding: 120px 56px 80px;  /* 👈 enemmän tilaa ylös, vähemmän alas */
 }
+
 
 .hero-copy h1 {
   margin: 0 0 20px;
