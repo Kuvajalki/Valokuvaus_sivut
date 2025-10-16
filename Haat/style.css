@@ -336,6 +336,13 @@ section.portfolio .portfolio-item {
 
 
 /* ===== HÄÄT: HINNASTO / PRICING ===== */
+
+.pricing h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-bottom: 15px;;
+}
 .pricing {
   padding: 60px 0 80px;
   background: #ffffff;               /* sama tausta kuin sivulla */
