@@ -426,6 +426,82 @@ section.portfolio .portfolio-item {
 .btn-quote:hover { transform: translateY(-1px); }
 .btn-quote:active { transform: translateY(0); }
 
+
+/* ===== PROSESSI / NÄIN ETENEMME ===== */
+.process {
+  background: #ececec;          /* vaalea harmaa tausta kuten mockup */
+  padding: 48px 0 56px;
+}
+
+.process .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.process h2 {
+  margin: 0 0 24px;
+  font-weight: 700;
+}
+
+/* Grid neljälle vaiheelle */
+.process-grid {
+  list-style: none;             /* käytetään <ol>, mutta piilotetaan listamerkit */
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* Yksittäinen vaihe */
+.process-step {
+  padding: 0 10px;
+}
+
+/* Numeroympyrä */
+.step-badge {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #cfcfcf;          /* harmaa ympyrä */
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+/* Vaiheen otsikko + teksti */
+.process-step h3 {
+  margin: 0 0 6px;
+  font-weight: 700;             /* lihavoitu otsikko kuten kuvassa */
+}
+
+.process-step p {
+  margin: 0;
+  line-height: 1.55;
+  max-width: 30ch;              /* rivimitta siistiksi */
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Lora", serif;   /* sama body-tyyli */
+  color: #2b2b2b;
+}
+
+/* Responsiivisuus */
+@media (max-width: 980px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .step-badge { width: 74px; height: 74px; }
+}
+
+
 /* Responsiivisuus */
 @media (max-width: 980px) {
   .pricing-grid {
