@@ -28,12 +28,12 @@ main {
 /* ========================================================= */
 
 /* Päänavin tyyli */
-.navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
+.navbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
 
 /* Navin sisältö (logo + linkit samalle riville) */
@@ -142,9 +142,6 @@ main {
 #hinnasto {
   scroll-margin-top: 80px; /* suunnilleen navin korkeus */
 }
-
-
-
 .hero-header {
   background: #ffffff;
   padding: 0px 0 60px; /* väli navin ja seuraavan osion kanssa */
@@ -269,7 +266,10 @@ main {
     max-width: 800px;                /* Prevent text from being too wide */
 }
 
-/* --- FORSSIETUT OVERRIDE'T PORTFOLIOLLE --- */
+/* ========================================= */
+/* ======== Portfolio ======= */
+/* ========================================= */
+
 section.portfolio {
   padding: 80px 0 !important;      /* vain pystysuunnassa, ei “täysleveää taustaa” */
   background: transparent !important;
@@ -342,7 +342,9 @@ section.portfolio .portfolio-item {
 .portfolio-btn:active { transform: translateY(0); }
 
 
-/* ===== HÄÄT: HINNASTO / PRICING ===== */
+/* ========================================= */
+/* ======== Hinnasto ======= */
+/* ========================================= */
 
 .pricing h2 {
   font-size: 28px;
@@ -433,8 +435,10 @@ section.portfolio .portfolio-item {
 .btn-quote:hover { transform: translateY(-1px); }
 .btn-quote:active { transform: translateY(0); }
 
+/* ========================================= */
+/* ======== PROSESSI / NÄIN ETENEMME ======= */
+/* ========================================= */
 
-/* ===== PROSESSI / NÄIN ETENEMME ===== */
 .process {
   background: transparent;        /* ei koko ruudun taustaa */
   padding: 48px 0 56px;           /* vain pystyväli ympärille */
