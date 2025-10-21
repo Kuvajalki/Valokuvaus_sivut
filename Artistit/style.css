@@ -501,7 +501,46 @@ section.portfolio .portfolio-item {
 .process-step { padding: 0 10px; }
 
 /* Numeroympyrä */
-.step-badge {
+.step-badge1 {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.step-badge2 {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.step-badge3 {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.step-badge4 {
   width: 84px;
   height: 84px;
   margin: 0 auto 14px;
