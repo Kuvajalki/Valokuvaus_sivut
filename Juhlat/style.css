@@ -198,14 +198,27 @@ main {
 }
 
 
+/* HERO – pääotsikko */
 .hero-copy h1 {
-  margin: 0 0 20px;
-  font-size: clamp(1rem, 1.6vw + 0.6rem, 1.4rem);
-  line-height: 1.6;
-  font-weight: 600;
-  color: #222;
-  max-width: 38ch;
+  margin: 0 0 8px;
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: clamp(1.4rem, 1.2vw + 1rem, 2rem); /* isompi kuin ennen */
+  color: #1d1d1b;
+  max-width: 30ch;
 }
+
+/* HERO – alaotsikko / kuvausteksti */
+.hero-copy h2 {
+  margin: 0 0 14px;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 0.8vw + 0.8rem, 1.1rem);
+  line-height: 1.55;
+  color: #2b2b2b;
+  max-width: 48ch;
+  font-family: "Lora", serif;
+}
+
 
 /* ===== NAPIT ===== */
 .hero-actions {
