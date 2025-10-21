@@ -5,8 +5,6 @@ html, body { height:100%; }
 body { display:flex; flex-direction:column; min-height:100vh; }
 main { flex:1 0 auto; }
 
-
-
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -28,12 +26,12 @@ main {
 /* ========================================================= */
 
 /* Päänavin tyyli */
-.navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
+.navbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
 
 /* Navin sisältö (logo + linkit samalle riville) */
@@ -58,15 +56,40 @@ main {
   padding: 0;
 }
 
-.nav-link {
+/* --- Hover-viiva-animaatio navilinkkeihin --- */
+.navbar-nav .nav-link {
+  position: relative;
   text-decoration: none;
   color: #222;
   font-weight: 500;
   transition: color 0.3s ease;
+  padding-bottom: 4px; /* tilaa viivalle */
 }
 
-.nav-link:hover {
-  color: #b97c2c; /* korosta hoverissa */
+/* Alleviivauksen animoitu elementti */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #b97c2c; /* sama sävy kuin hover-tekstissä */
+  border-radius: 3px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+/* Hover-efekti: viiva kasvaa vasemmalta oikealle */
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Tekstin hover-väri säilyy ennallaan */
+.navbar-nav .nav-link:hover {
+  color: #b97c2c;
 }
 
 /* Hamburger-nappi (piilotetaan desktopissa) */
@@ -135,43 +158,62 @@ main {
   }
 }
 
+
+
 /* ===== HERO HEADER ===== */
+#galleria,
+#hinnasto {
+  scroll-margin-top: 80px; /* suunnilleen navin korkeus */
+}
 .hero-header {
-  padding: 32px 0 64px;             /* väliä navin ja seuraavan osion kanssa */
-  background: #ffffff;               /* sivun tausta valkoinen */
+  background: #ffffff;
+  padding: 0px 0 60px; /* väli navin ja seuraavan osion kanssa */
 }
 
-.hero-header .container { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 16px; }
+.hero-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
 
+/* ===== KORTTI ===== */
 .hero-wrap {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;  /* teksti aavistuksen leveämpi */
-  gap: 40px;
-  align-items: center;
-  background: #ECECEC;              /* harmaa laatikko kuvan mukaisesti */
-  border-radius: 14px;
-  padding: 36px 40px;
+  grid-template-columns: 0.9fr 1.1fr;
+  column-gap: 0;
+  background: #ECECEC;
+  border-radius: 0;
+  padding: 0;
+  overflow: hidden;
+  align-items: stretch;
+  min-height: 550px; /* +20 % korkeutta */
 }
+
+/* ===== TEKSTIPUOLI ===== */
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 👈 vie tekstin ja napit alas */
+  padding: 120px 56px 80px;  /* 👈 enemmän tilaa ylös, vähemmän alas */
+}
+
 
 .hero-copy h1 {
-  margin: 0 0 18px;
-  font-size: clamp(0.95rem, 1.5vw + 0.5rem, 1.25rem); /* kompakti, lähellä mockupia */
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 1.6vw + 0.6rem, 1.4rem);
   line-height: 1.6;
   font-weight: 600;
-  color: #222;                       /* tumma teksti harmaalla */
-  max-width: 38ch;                   /* pituus hallintaan kuten kuvassa */
+  color: #222;
+  max-width: 38ch;
 }
 
+/* ===== NAPIT ===== */
 .hero-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-/* napit */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -185,40 +227,73 @@ main {
 }
 
 .btn--dark {
-  background: #5c5c5c;   /* tumma harmaa kuten kuvassa */
+  background: #5c5c5c;
   color: #fff;
 }
 
 .btn--light {
-  background: #f2f2f2;   /* vaalea harmaa nappi */
+  background: #f2f2f2;
   color: #222;
-  box-shadow: inset 0 0 0 1px #d9d9d9;  /* kevyt reunaviiva */
+  box-shadow: inset 0 0 0 1px #d9d9d9;
 }
 
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 
-/* oikean puolen kuva */
+/* ===== KUVAPUOLI ===== */
+.hero-media {
+  margin: 0px;              /* pieni reuna kortin sisällä */
+  border-radius: 0px;
+  overflow: hidden;
+}
+
 .hero-media img {
+  display: block;
   width: 100%;
   height: 100%;
-  max-height: 500px;
-  border-radius: 10px;
-  display: block;
   object-fit: cover;
+  border-radius: inherit;
+  background-color: #ECECEC; /* sulauttaa mahdolliset raot */
+  transform: scale(1.01);    /* häivyttää varjopikselit reunoilta */
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-copy {
+    padding: 48px 28px;
+  }
+
+  .hero-media {
+    margin: 8px 8px 0 8px;
+  }
+
+  .hero-media img {
+    height: 320px;
+  }
+}
+
+
+
 
 /* Main */
 #teksti1 {
     text-align: center;
-    font-size: 18px;                 /* Comfortable reading size */
+    font-size: 12px;                 /* Comfortable reading size */
     line-height: 1.6;                /* Good line spacing */
     padding: 40px 30px 80px 30px;              /* Vertical and horizontal padding */
     margin: 0 auto;                  /* Center block in layout */
     max-width: 800px;                /* Prevent text from being too wide */
 }
 
-/* --- FORSSIETUT OVERRIDE'T PORTFOLIOLLE --- */
+/* ========================================= */
+/* ======== Portfolio ======= */
+/* ========================================= */
+
 section.portfolio {
   padding: 80px 0 !important;      /* vain pystysuunnassa, ei “täysleveää taustaa” */
   background: transparent !important;
@@ -240,7 +315,7 @@ section.portfolio > .container > .portfolio-box {
   background: #f2f2f2 !important;
   text-align: center !important;
   padding: 80px 20px !important;
-  border-radius: 12px !important;
+  border-radius: 0px !important;
   margin: 0 auto !important;
 }
 
@@ -291,7 +366,9 @@ section.portfolio .portfolio-item {
 .portfolio-btn:active { transform: translateY(0); }
 
 
-/* ===== HÄÄT: HINNASTO / PRICING ===== */
+/* ========================================= */
+/* ======== Hinnasto ======= */
+/* ========================================= */
 
 .pricing h2 {
   font-size: 28px;
@@ -382,11 +459,13 @@ section.portfolio .portfolio-item {
 .btn-quote:hover { transform: translateY(-1px); }
 .btn-quote:active { transform: translateY(0); }
 
+/* ========================================= */
+/* ======== PROSESSI / NÄIN ETENEMME ======= */
+/* ========================================= */
 
-/* ===== PROSESSI / NÄIN ETENEMME ===== */
 .process {
-  background: #ececec;          /* vaalea harmaa tausta kuten mockup */
-  padding: 48px 0 56px;
+  background: transparent;        /* ei koko ruudun taustaa */
+  padding: 48px 0 56px;           /* vain pystyväli ympärille */
 }
 
 .process .container {
@@ -394,6 +473,11 @@ section.portfolio .portfolio-item {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+
+  /* tausta ja sisäpadding siirretään containerille */
+  background: #ececec;            /* vaalea harmaa laatikko */
+  padding: 36px 0 44px;           /* sisäpaddaus kuten aiemmin */
+  border-radius: 0;               /* halutessasi 12px pehmennystä */
 }
 
 .process h2 {
@@ -403,19 +487,18 @@ section.portfolio .portfolio-item {
 
 /* Grid neljälle vaiheelle */
 .process-grid {
-  list-style: none;             /* käytetään <ol>, mutta piilotetaan listamerkit */
+  list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;                 /* keskitys */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   align-items: start;
+  max-width: 1000px;              /* hieman kapeampi sisältö, vapaaehtoinen */
 }
 
 /* Yksittäinen vaihe */
-.process-step {
-  padding: 0 10px;
-}
+.process-step { padding: 0 10px; }
 
 /* Numeroympyrä */
 .step-badge {
@@ -423,7 +506,7 @@ section.portfolio .portfolio-item {
   height: 84px;
   margin: 0 auto 14px;
   border-radius: 50%;
-  background: #cfcfcf;          /* harmaa ympyrä */
+  background: #cfcfcf;
   display: grid;
   place-items: center;
   font-weight: 700;
@@ -434,28 +517,21 @@ section.portfolio .portfolio-item {
 /* Vaiheen otsikko + teksti */
 .process-step h3 {
   margin: 0 0 6px;
-  font-weight: 700;             /* lihavoitu otsikko kuten kuvassa */
+  font-weight: 700;
 }
 
 .process-step p {
   margin: 0;
   line-height: 1.55;
-  max-width: 30ch;              /* rivimitta siistiksi */
+  max-width: 30ch;
   margin-left: auto;
   margin-right: auto;
-  font-family: "Lora", serif;   /* sama body-tyyli */
+  font-family: "Lora", serif;
   color: #2b2b2b;
 }
 
-/* ===== Responsiivisuus ===== */
-@media (max-width: 980px) {
-  .hero-wrap {
-    grid-template-columns: 1fr;
-    padding: 22px;
-    gap: 18px;
-  }
-  .hero-copy h1 { max-width: 60ch; }
-}
+
+
 
 /* ========================================================= */
 /* ================== RESPONSIVISUUS ======================== */
@@ -470,8 +546,41 @@ section.portfolio .portfolio-item {
   .hero-copy h1 {
     max-width: 60ch;
     text-align: center;
+    
   }
   .hero-actions { justify-content: center; }
+}
+
+/* Responsiivisuus */
+@media (max-width: 980px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .step-badge { width: 74px; height: 74px; }
+}
+
+
+/* Responsiivisuus */
+@media (max-width: 980px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .features { max-width: 420px; }
+}
+
+
+
+/* ===== Responsiivisuus ===== */
+@media (max-width: 980px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    gap: 18px;
+  }
+  .hero-copy h1 { max-width: 60ch; }
 }
 
 /* ---------- FOOTER ---------- */

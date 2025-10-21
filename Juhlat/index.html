@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuvajälki – Juhlat</title>
+  <title>Kuvajälki – Häät</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Juhlat/style.css" />
-  <link rel="stylesheet" href="../Juhlat/utility.css" />
-  <link rel="stylesheet" href="../Juhlat/responsive.css" />
+  
   <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -41,7 +40,7 @@
             <a href="../Haat/index.html" class="nav-link">Häät</a>
           </li>
           <li class="nav-item">
-            <a href="../Juhlat/index.html" class="nav-link">Juhlat & Tilaisuudet</a>
+            <a href="../Juhlat/index.html" class="nav-link">Juhlat</a>
           </li>
           <li class="nav-item">
             <a href="../Yritykset/index.html" class="nav-link">Yritykset</a>
@@ -50,7 +49,10 @@
             <a href="../Artistit/index.html" class="nav-link">Artistit</a>
           </li>
           <li class="nav-item">
-            <a href="../Henkilo/index.html" class="nav-link">Henkilö- & Eläinkuvaus</a>
+            <a href="../Henkilo/index.html" class="nav-link">Potretit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Henkilo/index.html" class="nav-link">Ota Yhteyttä</a>
           </li>
         </ul>
       </div>
@@ -66,8 +68,10 @@
       <!-- Vasen: teksti + napit -->
       <div class="hero-copy">
         <h1>
-          Juhlahetket ja tilaisuudet, jotka jäävät mieleen. Syntymäpäivistä merkkipäiviin, yritystilaisuuksista perhejuhliin - 
-          tallennamme elämän tärkeät hetket kauniisti ja luonnollisesti. Jokainen tilaisuus ansaitsee ammattilaisen kosketuksen.
+          Hääpäivänne ansaitsee tulla muistetuksi juuri sellaisena kuin se on –
+          täynnä aitoja tunteita, naurua ja ohikiitäviä hetkiä. Meidän tehtävämme
+          on tallentaa nämä tarinat kuviksi ja videoiksi, joihin haluatte palata
+          yhä uudelleen.
         </h1>
 
         <div class="hero-actions">
@@ -80,7 +84,7 @@
       <figure class="hero-media">
         <img
           src="../img/Juhlat-vaaka.jpg"
-          alt="Iloinen kuva juhlijoista tötteröhatut päässä"
+          alt="Hääpari kaariholvin alla"
         />
       </figure>
     </div>
@@ -95,18 +99,21 @@
   <main>
     <div id="teksti1">
         <h2>
-        Juhlahetket ja tilaisuudet, jotka jäävät mieleen
-        Syntymäpäivistä merkkipäiviin, yritystilaisuuksista perhejuhliin - tallennamme elämän tärkeät hetket kauniisti ja luonnollisesti. Jokainen tilaisuus ansaitsee ammattilaisen kosketuksen.
+        Muistoja, joihin haluatte palata yhä uudelleen
+        Se on meidän tärkein lupauksemme. Uskomme, että hääkuvauksen arvo mitataan vuosien päästä.
+        Se mitataan siinä, kuinka usein teidän tekee mieli avata galleria ja palata niihin hetkiin.
+        Siksi keskitymme taltioimaan päivänne aidon tunnelman ja ne todelliset tunteet, jotka tekevät päivästä teidän.
+        Emme jahtaa täydellisiä poseerauksia, vaan rehellistä tarinaa, jotta voitte kokea sen kaiken uudelleen, juuri sellaisena kuin se tapahtui.
         </h2>
     </div>
-    <section class="portfolio">
+    <section class="portfolio" id="galleria">
   <div class="container">
     <div class="portfolio-box">
       <h2>Portfolio</h2>
       <p>
-        Jokainen juhla on ainutlaatuinen. 
-        Katso miten olen tallentanut erilaisia tilaisuuksia - syntymäpäiviä, merkkipäiviä, valmistujaisjuhlia 
-        ja muita tärkeitä hetkiä luonnollisella ja eläväisellä tyylilläni.
+        Jokainen häätarina on erilainen. 
+        Katso miten olen tallentanut rakkaustarinoita dokumentaarisella tyylilläni, 
+        keskittyen aitoon tunneilmaisuun ja spontaaneihin hetkiin.
       </p>
 
       <div class="portfolio-grid">
@@ -124,7 +131,7 @@
 </section>
 
 <!-- HINNASTO / PAKETIT -->
-<section class="pricing">
+<section class="pricing" id="hinnasto">
   <div class="container">
     <h2>Hinnasto & Paketit</h2>
     <div class="pricing-grid">
@@ -229,6 +236,9 @@
     </ol>
   </div>
 </section>
+
+
+
 
 </main>
 
