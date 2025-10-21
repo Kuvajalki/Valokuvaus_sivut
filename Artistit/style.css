@@ -160,62 +160,102 @@ main {
 
 
 
-/* ========================================================= */
-/* ================== HERO HEADER (täyskuva) ================ */
-/* ========================================================= */
-
+/* ===== HERO HEADER ===== */
 #galleria,
 #hinnasto {
-  scroll-margin-top: 80px; /* ankkureille tilaa fixed-naville */
+  scroll-margin-top: 80px; /* suunnilleen navin korkeus */
 }
-
-/* Ei muutosta taustan väriin; väli seuraavaan osioon pois */
 .hero-header {
   background: #ffffff;
-  padding: 96px 0 0;        /* tilaa fixed-naville; säädä tarvittaessa */
+  padding: 0px 0 60px; /* väli navin ja seuraavan osion kanssa */
 }
 
-/* Pidetään sama max-width kuin sivulla */
 .hero-header .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-/* H A R M A   L A A T I K K O */
+/* ===== KORTTI ===== */
 .hero-wrap {
-  /* vain yksi kolumni -> kuva saa koko leveysosuuden */
-  display: block;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  column-gap: 0;
   background: #ECECEC;
   border-radius: 0;
   padding: 0;
   overflow: hidden;
-
-  /* määritellään selkeä korkeus, jotta lapsi voi venyä 100% */
-  height: clamp(380px, 70vh, 820px);
+  align-items: stretch;
+  min-height: 550px; /* +20 % korkeutta */
 }
 
-/* Poistetaan tekstit ja napit kokonaan */
-.hero-copy { display: none !important; }
+/* ===== TEKSTIPUOLI ===== */
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 👈 vie tekstin ja napit alas */
+  padding: 120px 56px 80px;  /* 👈 enemmän tilaa ylös, vähemmän alas */
+}
 
-/* Kuvakehys täyttämään laatikko */
+
+.hero-copy h1 {
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 1.6vw + 0.6rem, 1.4rem);
+  line-height: 1.6;
+  font-weight: 600;
+  color: #222;
+  max-width: 38ch;
+}
+
+/* ===== NAPIT ===== */
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+.btn--dark {
+  background: #5c5c5c;
+  color: #fff;
+}
+
+.btn--light {
+  background: #f2f2f2;
+  color: #222;
+  box-shadow: inset 0 0 0 1px #d9d9d9;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+/* ===== KUVAPUOLI ===== */
 .hero-media {
-  margin: 0;
-  border-radius: 0;
-  width: 100%;
-  height: 100%;
+  margin: 0px;              /* pieni reuna kortin sisällä */
+  border-radius: 0px;
   overflow: hidden;
 }
 
-/* Kuva täyttää koko harmaan laatikon ilman tyhjää tilaa */
 .hero-media img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;      /* leikkaa siististi reunoista tarvittaessa */
-  object-position: center;
+  object-fit: cover;
+  border-radius: inherit;
+  background-color: #ECECEC; /* sulauttaa mahdolliset raot */
+  transform: scale(1.01);    /* häivyttää varjopikselit reunoilta */
 }
-
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -461,46 +501,7 @@ section.portfolio .portfolio-item {
 .process-step { padding: 0 10px; }
 
 /* Numeroympyrä */
-.step-badge1 {
-  width: 84px;
-  height: 84px;
-  margin: 0 auto 14px;
-  border-radius: 50%;
-  background: #cfcfcf;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #222;
-}
-
-.step-badge2 {
-  width: 84px;
-  height: 84px;
-  margin: 0 auto 14px;
-  border-radius: 50%;
-  background: #cfcfcf;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #222;
-}
-
-.step-badge3 {
-  width: 84px;
-  height: 84px;
-  margin: 0 auto 14px;
-  border-radius: 50%;
-  background: #cfcfcf;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #222;
-}
-
-.step-badge4 {
+.step-badge {
   width: 84px;
   height: 84px;
   margin: 0 auto 14px;
