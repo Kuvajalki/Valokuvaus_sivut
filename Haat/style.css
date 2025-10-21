@@ -549,6 +549,10 @@ section.portfolio .portfolio-item {
   font-size: 1.25rem;
   color: #222;
 }
+i{
+  font-size: 30px;
+  justify-content: center;
+}
 
 /* Vaiheen otsikko + teksti */
 .process-step h3 {
