@@ -365,11 +365,25 @@ section.portfolio .portfolio-grid {
 }
 
 /* Varmistetaan, ettei joku yleissääntö leikkaa kulmia pois */
+/* Neliö + pyöristys säilyy */
 section.portfolio .portfolio-item {
-  background-color: #ccc !important;
+  position: relative;
+  background-color: #ccc !important; /* näkyy ennen kuin kuva latautuu */
   width: 100% !important;
   aspect-ratio: 1 / 1 !important;
   border-radius: 8px !important;
+  overflow: hidden;                 /* leikkaa ylimenevän kuvan */
+}
+
+/* Kuva täyttää neliön siististi */
+section.portfolio .portfolio-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* tärkein rivi */
+  object-position: center;
+  border-radius: inherit;
+  transition: transform .3s ease;
 }
 
 
