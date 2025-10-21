@@ -45,6 +45,7 @@ main {
 /* Logo vasemmalle */
 .site-brand img {
   height: 60px;
+
 }
 
 /* Navilinkit (desktop-näkymä) */
@@ -641,33 +642,40 @@ i{
 
 .site-footer {
   background: #a79f93;              /* taustan sävy – säädä halutuksi */
-  color: #1d1d1b;                    /* teksti tumma */
+  color: #1d1d1b;                   /* teksti tumma */
   padding: 2.5rem 0 1.25rem;
-  border-top: 1px solid #1d1d1b;     /* ohut viiva aivan yläreunaan */
-
-  /* --- Sticky footer: työnnä footer alas, kun runko on flex-kolumni --- */
-  margin-top: auto;
+  border-top: 1px solid #1d1d1b;    /* ohut viiva aivan yläreunaan */
+  margin-top: auto;                 /* sticky footer -tuki */
 }
 
+/* Kolme tasaleveyistä kolumnia keskellä */
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 tasalevyistä saraketta */
-  gap: 2rem;
-  justify-content: center;   /* keskittää koko rivin containerin sisällä */
-  align-items: start;        /* sisältö alkaa ylhäältä */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  justify-content: center;   /* keskittää rivin containerin sisällä */
+  justify-items: center;     /* keskittää solujen sisällön vaakasuunnassa */
+  align-items: start;        /* kaikkien yläreunat linjaan */
   text-align: center;
 }
 
+/* Kolumnien sisäinen asettelu keskelle */
 .footer-brand,
 .footer-services,
 .footer-social {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Nostetaan footerin vasemman kolumnin teksti linjaan muiden otsikoiden kanssa */
+.footer-brand { 
+  margin-top: -14px; /* säädä -4…-10px tarvittaessa */
 }
 
 .footer-logo {
-  height: 48px;                      /* footerissa hieman pienempi/kompakti */
+  height: 48px;
   width: auto;
   display: block;
   margin-bottom: 0.75rem;
@@ -686,10 +694,10 @@ i{
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 700;
-  text-align: center;
   margin: 0 0 0.75rem;
 }
 
+/* Palvelulista ja somelista ilman oletuslistatyylejä */
 .footer-services ul,
 .footer-social ul {
   list-style: none;
@@ -697,9 +705,10 @@ i{
   padding: 0;
 }
 
-.footer-services ul li {
-  text-align: center;
-  margin: 0.25rem 0;
+.footer-services ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .footer-services a {
@@ -708,12 +717,9 @@ i{
   font-weight: 600;
   letter-spacing: 0.04em;
 }
+.footer-services a:hover { text-decoration: underline; }
 
-.footer-services a:hover {
-  text-decoration: underline;
-}
-
-/* Sosiaalilinkit ikonirivinä */
+/* Someikonit rivissä */
 .footer-social ul {
   display: flex;
   gap: 0.75rem;
@@ -728,24 +734,16 @@ i{
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 6px;
-  border: 1px solid #1d1d1b;
+  text-decoration: none;
   transition: transform 0.2s ease, background 0.2s ease;
 }
-
-.footer-social a:hover {
-  background: #1d1d1b;
-  color: #a79f93;
-  transform: translateY(-2px);
-}
+.footer-social a:hover { transform: translateY(-2px); }
 
 .footer-rule {
   border: none;
-  border-top: 1px solid #6f6a62;  /* ohut harmaa viiva */
-  margin: 1.75rem 0 0.75rem;
+  border-top: 1px solid #6f6a62;
+  margin: 1.75rem auto 0.75rem;
   width: min(720px, 90%);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .footer-bottom {
@@ -757,13 +755,17 @@ i{
 /* ---------- Footerin responsiivisuus ---------- */
 @media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr;   /* pinotaan */
+    grid-template-columns: 1fr;   /* pinotaan allekkain */
     text-align: center;
+    gap: 1.5rem;
   }
+
   .footer-brand {
     display: grid;
     justify-items: center;
+    margin-top: 0; /* poistetaan negatiivinen marginaali mobiilissa */
   }
+
   .footer-tagline {
     max-width: 28ch;
   }
