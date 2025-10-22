@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kuvajälki — Ota yhteyttä</title>
+
+  <!-- Fontit ja ikonit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Sivukohtainen tyyli -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar (sama kuin aiemmin) -->
+  <nav class="navbar">
+    <div class="container flex">
+      <a href="../Etusivu/" class="site-brand">
+        <img src="../img/logo.svg" alt="Kuvajälki logo" />
+      </a>
+
+      <!-- Open (hamburger) button -->
+      <button type="button" id="navbar-show-btn" aria-label="Avaa valikko">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible menu -->
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" aria-label="Sulje valikko">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="navbar-nav">
+  
+          <li class="nav-item">
+            <a href="../Haat/index.html" class="nav-link">Häät</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Juhlat/index.html" class="nav-link">Juhlat</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Yritykset/index.html" class="nav-link">Yritykset</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Artistit/index.html" class="nav-link">Artistit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Henkilo/index.html" class="nav-link">Potretit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Henkilo/index.html" class="nav-link">Ota Yhteyttä</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar end -->
+
+  <main>
+    <!-- Ota yhteyttä: lomake ensin, info visuaalisesti sivulla -->
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <div class="container contact-grid">
+
+        <!-- Lomake -->
+        <div class="contact-form-wrap">
+          <form id="contact-form" class="contact-form" novalidate>
+            <h1 id="contact-heading" class="contact-title">Ota yhteyttä</h1>
+
+            <div class="form-row">
+              <label for="name">Nimi</label>
+              <input id="name" name="name" type="text" placeholder="Etunimi Sukunimi" />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Sähköposti</label>
+              <input id="email" name="email" type="email" placeholder="sahkoposti@esimerkki.fi" />
+            </div>
+
+            <div class="form-row">
+              <label for="service">Palvelu</label>
+              <select id="service" name="service">
+                <option value="">Valitse palvelu</option>
+                <option>Häät</option>
+                <option>Juhlat &amp; Tilaisuudet</option>
+                <option>Yrityskuvaus</option>
+                <option>Henkilö- &amp; Eläinkuvaus</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Viesti</label>
+              <textarea id="message" name="message" rows="6" placeholder="Kerro toiveistasi..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Lähetä viesti</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Info (sivulla vasemmalle visuaalisesti) -->
+        <aside class="contact-info">
+          <p class="lead">Kerro lyhyesti toiveistasi — suunnittelemme yhdessä kuvauksen aikataulun ja sisällön.</p>
+
+          <ul class="contact-meta">
+            <li><i class="fas fa-envelope"></i> studio@kuvajalki.fi</li>
+            <li><i class="fas fa-phone"></i> +358 40 123 4567</li>
+            <li><i class="fas fa-map-marker-alt"></i> Helsinki</li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- FAQ: 5 dropdownia, suljettu oletuksena -->
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 id="faq-heading" class="faq-title">Usein kysytyt kysymykset</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Mikä on peruutusehtonne? <span class="faq-icon">▾</span></button>
+            <div class="faq-a" hidden><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Voiko varata koko päivän? <span class="faq-icon">▾</span></button>
+            <div class="faq-a" hidden><p>Lorem ipsum dolor sit amet, vestibulum ante ipsum primis in faucibus.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Kuinka nopeasti kuvat toimitetaan? <span class="faq-icon">▾</span></button>
+            <div class="faq-a" hidden><p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Sisältääkö paketti kuvankäsittelyn? <span class="faq-icon">▾</span></button>
+            <div class="faq-a" hidden><p>Lorem ipsum dolor sit amet, praesent commodo cursus magna, vel scelerisque nisl consectetur.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Voinko tilata lisäpainoksia jälkikäteen? <span class="faq-icon">▾</span></button>
+            <div class="faq-a" hidden><p>Lorem ipsum dolor sit amet, cras mattis consectetur purus sit amet fermentum.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+ <footer class="site-footer">
+  <div class="container footer-grid">
+    <!-- VASEN: logo + kuvaus -->
+    <div class="footer-brand">
+      <img src="../img/logo.svg" alt="Kuvajälki" class="footer-logo">
+      <p class="footer-tagline">
+        Ammattitaitoista valokuvausta elämän tärkeimmille hetkille.
+      </p>
+    </div>
+
+    <!-- KESKI: Palvelut-linkit -->
+    <nav class="footer-services" aria-label="Palvelut">
+      <h4>Palvelut</h4>
+      <ul>
+        <li><a href="../Haat/index.html">Häät</a></li>
+        <li><a href="../Juhlat/index.html">Juhlat &amp; Tilaisuudet</a></li>
+        <li><a href="../Yritykset/index.html">Yritykset</a></li>
+        <li><a href="../Artistit/index.html">Artistit</a></li>
+        <li><a href="../Henkilokuvaus/index.html">Henkilö &amp; Eläinkuvaus</a></li>
+      </ul>
+    </nav>
+
+    <!-- OIKEA: Seuraa, tässä ikonit sosiaalisiin medioihin -->
+    <div class="footer-social">
+      <h4>Seuraa</h4>
+      <ul>
+        <li><a href="#" aria-label="Facebook"><i class="footer-social-icon fab fa-facebook"></i></a></li>
+        <li><a href="#" aria-label="X / Twitter"><i class="footer-social-icon fab fa-x-twitter"></i></a></li>
+        <li><a href="#" aria-label="YouTube"><i class="footer-social-icon fab fa-youtube"></i></a></li>
+        <li><a href="#" aria-label="Instagram"><i class="footer-social-icon fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="footer-rule" />
+
+  <div class="container footer-bottom">
+    <p>Kuvajälki 2025. Kaikki oikeudet pidetään</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

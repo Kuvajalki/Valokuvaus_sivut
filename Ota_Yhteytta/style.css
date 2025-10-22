@@ -1,0 +1,449 @@
+/* ========================================================= */
+/* ================== YLEISET ASETUKSET ===================== */
+/* ========================================================= */
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  color: #222;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Varmistaa, ettei sisältö jää navin alle */
+:root {
+  --nav-height: 92px; /* säädä tarvittaessa (logo + nav padding) */
+}
+
+/* Pienennä tai nosta vielä 16px jos haluat enemmän tilaa navin alle */
+main { padding-top: calc(var(--nav-height) + 16px); }
+
+main {
+  padding-bottom: 40px; /* tilaa footerille */
+}
+
+/* ========================================================= */
+/* ================== NAVIGAATIO (kopio Etusivu) ============ */
+/* ========================================================= */
+
+/* Päänavin tyyli */
+.navbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+/* Navin sisältö (logo + linkit samalle riville) */
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* Logo vasemmalle, linkit oikealle */
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* Logo vasemmalle */
+.site-brand img {
+  height: 60px;
+
+}
+
+/* Navilinkit (desktop-näkymä) */
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Hover-viiva-animaatio navilinkkeihin --- */
+.navbar-nav .nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding-bottom: 4px; /* tilaa viivalle */
+}
+
+/* Alleviivauksen animoitu elementti */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #b97c2c; /* sama sävy kuin hover-tekstissä */
+  border-radius: 3px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+/* Hover-efekti: viiva kasvaa vasemmalta oikealle */
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Tekstin hover-väri säilyy ennallaan */
+.navbar-nav .nav-link:hover {
+  color: #b97c2c;
+}
+
+/* Hamburger-nappi (piilotetaan desktopissa) */
+#navbar-show-btn,
+#navbar-close-btn {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* näkyy vain mobiilissa */
+}
+
+/* Collapsible menu (mobiili) */
+#navbar-collapse {
+  display: flex;
+}
+
+/* ========================================================= */
+/* ================== MOBIILINAVI =========================== */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+  /* Piilota desktop-linkit oletuksena mobiilissa */
+  #navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  /* Näytä avaus- ja sulkunapit */
+  #navbar-show-btn {
+    display: block;
+  }
+
+  #navbar-close-btn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  /* Kun menu on aktiivinen (esim. JS lisää .open-luokan) */
+  #navbar-collapse.open {
+    right: 0;
+  }
+
+  /* Linkit pystysuunnassa mobiilissa */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* ========================================================= */
+/* ================== Ota yhteyttä -osio ===================== */
+/* ========================================================= */
+
+:root{
+  --brand-dark:#1b2428;
+  --accent:#b97c2c;
+  --muted:#8f8f8f;
+  --surface:#f6f5f3;
+}
+
+.contact-section{
+  padding:56px 0;
+  background: #fff;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:36px;
+  align-items:start;
+  margin-top:8px;
+}
+@media (max-width:980px){ .contact-grid{ grid-template-columns:1fr; } }
+
+.contact-form-wrap {
+  background:var(--surface);
+  padding:22px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+}
+.contact-title{font-family:"Lora",serif;font-size:28px;margin:0 0 12px}
+.form-row{display:flex;flex-direction:column;margin-bottom:12px}
+.form-row label{font-weight:600;margin-bottom:6px;color:var(--brand-dark)}
+.form-row input, .form-row select, .form-row textarea{padding:10px 12px;border-radius:8px;border:1px solid #e3dfdb;background:#fff;font-size:0.96rem;color:var(--brand-dark)}
+.form-row textarea{min-height:120px;resize:vertical}
+.form-actions{display:flex;justify-content:flex-end;margin-top:8px}
+.btn{padding:10px 16px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.btn-primary{background:var(--brand-dark);color:#fff;min-width:150px}
+
+.contact-info{display:flex;flex-direction:column;justify-content:center;padding:6px}
+.lead{color:var(--muted);margin:0 0 12px;max-width:48ch;line-height:1.6}
+.contact-meta{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;color:var(--muted)}
+.contact-meta i{width:20px;color:var(--accent)}
+
+/* ================== FAQ ================== */
+.faq-section{padding:36px 0 72px;background:#fff}
+.faq-title{text-align:center;margin:0 auto 20px;width:100%;max-width:none}
+.faq-list{max-width:960px;margin:0 auto;display:grid;gap:12px;padding:0 16px}
+
+/* Aseta FAQ samaan vaakatasoon kuin lomakkeen vasen reuna */
+.faq-list {
+  display: grid;
+  gap: 14px;
+  padding-left: 0;        /* ei keskitystä */
+  margin: 0;              /* vasen reuna kohtaa .containerin vasemman reunan */
+  width: 100%;
+  max-width: none;    /* poistaa aiemmat max-width-rajoitukset */
+}
+
+/* Desktop: jos sivu jakautuu lomake + oikea sivu (420px), skaalataan FAQ:n leveys vastaamaan lomakkeen aluetta */
+@media (min-width: 981px) {
+  .faq-list {
+    /* 420px = oikea sarake leveys, 36px = grid gap (säätö tarpeen mukaan) */
+    width: calc(100% - 420px - 36px);
+    max-width: 6000px; /* estää liian leveän, säädä tarvittaessa */
+  }
+
+  .faq-title {
+    /* Vaihda 420px ja 36px vastaamaan contact-gridin oikean sarakkeen leveyttä ja gapia */
+    max-width: calc(100% - 420px - 36px);
+  }
+}
+
+/* Pienemmillä näytöillä palautetaan keskitys (mobiilissa FAQ täyttää leveyden) */
+@media (max-width: 980px) {
+  .faq-list { width: 100%; max-width: 100%; padding: 0 0; margin: 0 auto; }
+
+  .faq-title {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+.faq-item{background:var(--surface);border-radius:8px;border:1px solid #e6e6e6;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:none;background:#d6d6d6;cursor:pointer;font-weight:700;font-size:1.03rem;text-align:left}
+.faq-q .faq-icon{transition:transform .2s ease}
+.faq-a{padding:0 18px;background:#efefef;color:var(--brand-dark);line-height:1.6;font-size:0.96rem;max-height:0;overflow:hidden;transition:max-height .32s ease,padding .2s ease}
+.faq-item.open .faq-a{padding:14px 18px 18px 18px;max-height:420px}
+.faq-item.open .faq-q .faq-icon{transform:rotate(180deg)}
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  background: #a79f93;              /* taustan sävy – säädä halutuksi */
+  color: #1d1d1b;                   /* teksti tumma */
+  padding: 2.5rem 0 1.25rem;
+  border-top: 1px solid #1d1d1b;    /* ohut viiva aivan yläreunaan */
+  margin-top: auto;                 /* sticky footer -tuki */
+}
+
+/* Kolme tasaleveyistä kolumnia keskellä */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  justify-content: center;   /* keskittää rivin containerin sisällä */
+  justify-items: center;     /* keskittää solujen sisällön vaakasuunnassa */
+  align-items: start;        /* kaikkien yläreunat linjaan */
+  text-align: center;
+}
+
+/* Kolumnien sisäinen asettelu keskelle */
+.footer-brand,
+.footer-services,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Nostetaan footerin vasemman kolumnin teksti linjaan muiden otsikoiden kanssa */
+.footer-brand { 
+  margin-top: -14px; /* säädä -4…-10px tarvittaessa */
+}
+
+.footer-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.footer-tagline {
+  font-family: "Lora", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.site-footer h4 {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+/* Palvelulista ja somelista ilman oletuslistatyylejä */
+.footer-services ul,
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-services ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-services a {
+  color: #1d1d1b;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.footer-services a:hover { text-decoration: underline; }
+
+/* Someikonit rivissä */
+.footer-social ul {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+i{
+  font-size: 30px;
+  justify-content: center;
+}
+
+.footer-social a {
+  color: #1d1d1b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.footer-social a:hover { transform: translateY(-2px); }
+
+.footer-rule {
+  border: none;
+  border-top: 1px solid #6f6a62;
+  margin: 1.75rem auto 0.75rem;
+  width: min(720px, 90%);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ---------- Footerin responsiivisuus ---------- */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;   /* pinotaan allekkain */
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    display: grid;
+    justify-items: center;
+    margin-top: 0; /* poistetaan negatiivinen marginaali mobiilissa */
+  }
+
+  .footer-tagline {
+    max-width: 28ch;
+  }
+}
+
+/* Aseta FAQ-otsikko ja lista samaan sarakkeeseen kuin lomake (1fr 420px) */
+.faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 420px; /* sama kuin contact-grid */
+  gap: 36px;
+  align-items: start;
+}
+
+/* Sijoitetaan otsikko ja lista toiseen (oikeaan) sarakkeeseen ja keskitetään ne sarakkeen sisällä */
+.faq-title {
+  grid-column: 1;        /* sijoittaa otsikon vasempaan sarakkeeseen */
+  justify-self: start;   /* kohdistaa sarakkeen vasempaan reunaan */
+  text-align: left;
+  margin: 0 0 20px;
+}
+
+.faq-list {
+  grid-column: 2;
+  width: 100%;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+/* Responsiivisuus: mobiilissa pinotaan yhden sarakkeen muotoon */
+@media (max-width: 980px) {
+  .faq-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .faq-title,
+  .faq-list {
+    grid-column: 1;
+    justify-self: stretch;
+    text-align: center;
+  }
+}
+
+/* Footerin some-ikonit erikseen (isompi koko vain footeriin) */
+.footer-social-icon {
+  font-size: 18px;      /* säädä halutuksi (esim. 18-20px) */
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  line-height: 20px;
+}
+
+/* Varmista, että contact-formin viereiset ikonit pysyvät pieninä */
+.contact-meta i {
+  font-size: 14px;     /* alkuperäinen koko */
+  width: 20px;
+  text-align: center;
+  line-height: 1;
+  color: var(--accent);
+}
