@@ -1,15 +1,24 @@
-/* ========================================================= */
-/* ================== YLEISET ASETUKSET ===================== */
-/* ========================================================= */
-html, body { height:100%; }
-body { display:flex; flex-direction:column; min-height:100vh; }
-main { flex:1 0 auto; }
+/* =========================================================
+   YLEISET ASETUKSET
+   ========================================================= */
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
   color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-bottom: 40px;
 }
 
 .container {
@@ -17,38 +26,33 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-main {
-  padding-bottom: 40px; /* tilaa footerille */
-}
 
-/* ========================================================= */
-/* ================== NAVIGAATIO ============================ */
-/* ========================================================= */
-
-/* Päänavin tyyli */
-.navbar{
+/* =========================================================
+   NAVIGAATIO
+   ========================================================= */
+.navbar {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #eee;
 }
 
-/* Navin sisältö (logo + linkit samalle riville) */
 .navbar .container {
   display: flex;
-  justify-content: space-between; /* Logo vasemmalle, linkit oikealle */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
 
-/* Logo vasemmalle */
 .site-brand img {
   height: 60px;
-
+  display: block;
 }
 
-/* Navilinkit (desktop-näkymä) */
 .navbar-nav {
   list-style: none;
   display: flex;
@@ -57,17 +61,15 @@ main {
   padding: 0;
 }
 
-/* --- Hover-viiva-animaatio navilinkkeihin --- */
 .navbar-nav .nav-link {
   position: relative;
   text-decoration: none;
   color: #222;
   font-weight: 500;
+  padding-bottom: 4px;
   transition: color 0.3s ease;
-  padding-bottom: 4px; /* tilaa viivalle */
 }
 
-/* Alleviivauksen animoitu elementti */
 .navbar-nav .nav-link::after {
   content: "";
   position: absolute;
@@ -75,25 +77,23 @@ main {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: #b97c2c; /* sama sävy kuin hover-tekstissä */
+  background: #b97c2c;
   border-radius: 3px;
   transform-origin: right;
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
 
-/* Hover-efekti: viiva kasvaa vasemmalta oikealle */
+.navbar-nav .nav-link:hover {
+  color: #b97c2c;
+}
+
 .navbar-nav .nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-/* Tekstin hover-väri säilyy ennallaan */
-.navbar-nav .nav-link:hover {
-  color: #b97c2c;
-}
-
-/* Hamburger-nappi (piilotetaan desktopissa) */
+/* Hampurilainen ja sulkunappi (näkyvät vain mobiilissa) */
 #navbar-show-btn,
 #navbar-close-btn {
   background: none;
@@ -101,20 +101,22 @@ main {
   color: #222;
   font-size: 1.5rem;
   cursor: pointer;
-  display: none; /* näkyy vain mobiilissa */
+  display: none;
 }
 
-/* Collapsible menu (mobiili) */
+/* Desktopissa valikko näkyy rivillä */
 #navbar-collapse {
   display: flex;
 }
 
-/* ========================================================= */
-/* ================== MOBIILINAVI =========================== */
-/* ========================================================= */
-
+/* =========================================================
+   MOBIILINAVI
+   ========================================================= */
 @media (max-width: 768px) {
-  /* Piilota desktop-linkit oletuksena mobiilissa */
+  #navbar-show-btn {
+    display: block;
+  }
+
   #navbar-collapse {
     position: fixed;
     top: 0;
@@ -124,15 +126,10 @@ main {
     background: #fff;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 2rem;
     transition: right 0.3s ease;
-  }
-
-  /* Näytä avaus- ja sulkunapit */
-  #navbar-show-btn {
-    display: block;
   }
 
   #navbar-close-btn {
@@ -142,12 +139,11 @@ main {
     right: 1rem;
   }
 
-  /* Kun menu on aktiivinen (esim. JS lisää .open-luokan) */
+  /* JS lisää .open kun valikko avataan */
   #navbar-collapse.open {
     right: 0;
   }
 
-  /* Linkit pystysuunnassa mobiilissa */
   .navbar-nav {
     flex-direction: column;
     gap: 1.5rem;
@@ -159,57 +155,52 @@ main {
   }
 }
 
-
-
-/* ===== HERO HEADER ===== */
+/* Korjaus ankkurihyppäykselle kiinteän navin kanssa */
 #galleria,
 #hinnasto {
-  scroll-margin-top: 80px; /* suunnilleen navin korkeus */
+  scroll-margin-top: 80px;
 }
+
+/* =========================================================
+   HERO-OSIO
+   ========================================================= */
 .hero-header {
   background: #ffffff;
-  padding: 0px 0 60px; /* väli navin ja seuraavan osion kanssa */
+  padding: 0 0 60px;
 }
 
 .hero-header .container {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0 16px;
 }
 
-/* ===== KORTTI ===== */
 .hero-wrap {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   column-gap: 0;
-  background: #ECECEC;
+  background: #ececec;
   border-radius: 0;
   padding: 0;
   overflow: hidden;
   align-items: stretch;
-  min-height: 550px; /* +20 % korkeutta */
+  min-height: 550px;
 }
 
-/* ===== TEKSTIPUOLI ===== */
 .hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* 👈 vie tekstin ja napit alas */
-  padding: 120px 56px 80px;  /* 👈 enemmän tilaa ylös, vähemmän alas */
+  justify-content: flex-end;
+  padding: 120px 56px 80px;
 }
 
-
-/* HERO – pääotsikko */
 .hero-copy h1 {
   margin: -4px 0 10px;
   font-weight: 700;
   line-height: 1.2;
-  font-size: clamp(1.5rem, 1.4vw + 1rem, 2rem); /* isompi kuin ennen */
+  font-size: clamp(1.5rem, 1.4vw + 1rem, 2rem);
   color: #1d1d1b;
   max-width: 30ch;
 }
 
-/* HERO – alaotsikko / kuvausteksti */
 .hero-copy h2 {
   margin: 0 0 16px;
   font-weight: 500;
@@ -220,7 +211,6 @@ main {
   font-family: "Lora", serif;
 }
 
-/* ===== NAPIT ===== */
 .hero-actions {
   display: flex;
   gap: 14px;
@@ -236,27 +226,31 @@ main {
   font-weight: 600;
   text-decoration: none;
   border: 0;
-  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn--dark {
-  background: #5c5c5c;
+  background: #333333;
   color: #fff;
 }
 
 .btn--light {
-  background: #f2f2f2;
+  background: #ffffff;
   color: #222;
   box-shadow: inset 0 0 0 1px #d9d9d9;
 }
 
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
-
-/* ===== KUVAPUOLI ===== */
 .hero-media {
-  margin: 0px;              /* pieni reuna kortin sisällä */
-  border-radius: 0px;
+  margin: 0;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -265,12 +259,10 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: inherit;
-  background-color: #ECECEC; /* sulauttaa mahdolliset raot */
-  transform: none;    
+  background-color: #ececec;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Hero responsiivisuus */
 @media (max-width: 900px) {
   .hero-wrap {
     grid-template-columns: 1fr;
@@ -290,35 +282,71 @@ main {
   }
 }
 
+@media (max-width: 980px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 24px;
+  }
 
-
-
-/* Main */
-#teksti1 {
+  .hero-copy h1 {
+    max-width: 60ch;
     text-align: center;
-    font-size: 12px;                 /* Comfortable reading size */
-    line-height: 1.6;                /* Good line spacing */
-    padding: 40px 30px 80px 30px;              /* Vertical and horizontal padding */
-    margin: 0 auto;                  /* Center block in layout */
-    max-width: 800px;                /* Prevent text from being too wide */
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
 }
 
-/* ========================================= */
-/* ======== Portfolio ======= */
-/* ========================================= */
+/* =========================================================
+   INTROTEKSTI (tukee #teksti1 tai .intro)
+   ========================================================= */
+#teksti1,
+.intro {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 40px 30px 80px 30px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.intro h2 {
+  margin: 0 0 8px 0;
+}
+
+.intro p {
+  margin: 0;
+  font-weight: 1000;
+}
+
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+section.portfolio {
+  padding: 80px 0;
+  background: transparent;
+}
+
+.portfolio-box {
+  background: #f2f2f2;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 0;
+  margin: 0 auto;
+}
 
 .video-section {
-  
-  padding-bottom: 80px ;
+  padding-bottom: 80px;
 }
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9-kuvasuhde */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  
 }
 
 .video-container iframe {
@@ -331,66 +359,30 @@ main {
   padding-bottom: 20px;
 }
 
-section.portfolio {
-  padding: 80px 0 !important;      /* vain pystysuunnassa, ei “täysleveää taustaa” */
-  background: transparent !important;
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin: 0 auto 60px auto;
 }
 
-/* Pakotetaan .container samaksi leveysksi kuin muu sivu */
-section.portfolio > .container {
-  width: 90% !important;
-  max-width: 1200px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 !important;           /* varmistetaan ettei ulkokuori tuo taustaa */
-  background: transparent !important;
-  border-radius: 0 !important;
-}
-
-/* Harmaa laatikko vain sisälaatikkoon – EI koko näytölle */
-section.portfolio > .container > .portfolio-box {
-  background: #f2f2f2 !important;
-  text-align: center !important;
-  padding: 80px 20px !important;
-  border-radius: 0px !important;
-  margin: 0 auto !important;
-}
-
-/* Grid voi täyttää sisälaatikon – poista max-width, jos haluat */
-section.portfolio .portfolio-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 40px !important;
-  margin: 0 auto 60px auto !important;
-  /* max-width: 900px;  // jätä pois, jos haluat leveämmäksi */
-}
-
-/* Varmistetaan, ettei joku yleissääntö leikkaa kulmia pois */
-/* Neliö + pyöristys säilyy */
-section.portfolio .portfolio-item {
+.portfolio-item {
   position: relative;
-  background-color: #ccc !important; /* näkyy ennen kuin kuva latautuu */
-  width: 100% !important;
-  aspect-ratio: 1 / 1 !important;
-  border-radius: 8px !important;
-  overflow: hidden;                 /* leikkaa ylimenevän kuvan */
+  background-color: #ccc;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Kuva täyttää neliön siististi */
-section.portfolio .portfolio-item img {
+.portfolio-item img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: inherit;
-  image-rendering: -webkit-optimize-contrast; /* parempi tarkkuus Chromessa */
-  image-rendering: crisp-edges;               /* estää liiallista pehmennystä */
-  transform: none;                            /* varmista ettei skaalausta tule */
-  backface-visibility: hidden;                /* poistaa renderöintivärinöitä */
 }
-
-
 
 .portfolio h2 {
   font-size: 28px;
@@ -406,42 +398,54 @@ section.portfolio .portfolio-item img {
 }
 
 .portfolio-btn {
-    background-color: #c1c1c1;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-    color: #000;
-    text-decoration: none;
+  background-color: #333333;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  color: #fff;
+  text-decoration: none;
 }
 
-.portfolio-btn:hover { transform: translateY(-1px); }
-.portfolio-btn:active { transform: translateY(0); }
+.portfolio-btn:hover {
+  transform: translateY(-1px);
+}
 
+.portfolio-btn:active {
+  transform: translateY(0);
+}
 
-/* ========================================= */
-/* ======== Hinnasto ======= */
-/* ========================================= */
+/* Portfolio responsiivisuus */
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   HINNASTO / PAKETIT
+   ========================================================= */
+.pricing {
+  padding: 60px 0 80px;
+  background: #ffffff;
+}
 
 .pricing h2 {
   font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
-  padding-bottom: 15px;;
-}
-.pricing {
-  padding: 60px 0 80px;
-  background: #ffffff;               /* sama tausta kuin sivulla */
-}
-
-.pricing .container {                /* sama leveys kuin muu sivu */
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding-bottom: 15px;
 }
 
 .pricing-grid {
@@ -452,16 +456,16 @@ section.portfolio .portfolio-item img {
 }
 
 .price-card {
-  background: #e9e7e7;               /* vaalea harmaa kuten mockup */
+  background: #e9e7e7;
   border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   padding: 26px 22px 28px;
   text-align: center;
 }
 
 .price-card h3 {
   font-weight: 700;
-  margin: 0 0 10px;
+  margin: 0 0 10px 0;
   font-size: 1.25rem;
 }
 
@@ -470,11 +474,11 @@ section.portfolio .portfolio-item img {
   border-radius: 12px;
   padding: 12px 10px;
   margin: 12px 0;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
 .price-block h4 {
-  margin: 0 0 4px;
+  margin: 0 0 4px 0;
   font-weight: 700;
 }
 
@@ -486,14 +490,15 @@ section.portfolio .portfolio-item img {
 .features {
   list-style: disc;
   text-align: left;
-  margin: 14px auto 0;
+  margin: 14px auto 0 auto;
   padding-left: 22px;
-  max-width: 260px;                  /* pitää rivimitan siistinä */
+  max-width: 260px;
 }
 
-.features li { margin: 6px 0; }
+.features li {
+  margin: 6px 0;
+}
 
-/* CTA-nappi korttien alle */
 .pricing-cta {
   display: flex;
   justify-content: center;
@@ -503,26 +508,42 @@ section.portfolio .portfolio-item img {
 
 .btn-quote {
   display: inline-block;
-  background: #a97b79;               /* lämmin roosanruskea kuten kuvassa */
+  background: #333333;
   color: #fff;
   padding: 10px 26px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
-.btn-quote:hover { transform: translateY(-1px); }
-.btn-quote:active { transform: translateY(0); }
+.btn-quote:hover {
+  transform: translateY(-1px);
+}
 
-/* ========================================= */
-/* ======== PROSESSI / NÄIN ETENEMME ======= */
-/* ========================================= */
+.btn-quote:active {
+  transform: translateY(0);
+}
 
+/* Hinnaston responsiivisuus */
+@media (max-width: 980px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .features {
+    max-width: 420px;
+  }
+}
+
+/* =========================================================
+   PROSESSI / NÄIN ETENEMME
+   ========================================================= */
 .process {
-  background: transparent;        /* ei koko ruudun taustaa */
-  padding: 48px 0 56px;           /* vain pystyväli ympärille */
+  background: transparent;
+  padding: 48px 0 56px 0;
 }
 
 .process .container {
@@ -530,38 +551,35 @@ section.portfolio .portfolio-item img {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-
-  /* tausta ja sisäpadding siirretään containerille */
-  background: #ececec;            /* vaalea harmaa laatikko */
-  padding: 36px 0 44px;           /* sisäpaddaus kuten aiemmin */
-  border-radius: 0;               /* halutessasi 12px pehmennystä */
+  background: #ececec;
+  padding: 36px 0 44px 0;
+  border-radius: 0;
 }
 
 .process h2 {
-  margin: 0 0 24px;
+  margin: 0 0 24px 0;
   font-weight: 700;
 }
 
-/* Grid neljälle vaiheelle */
 .process-grid {
   list-style: none;
   padding: 0;
-  margin: 0 auto;                 /* keskitys */
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   align-items: start;
-  max-width: 1000px;              /* hieman kapeampi sisältö, vapaaehtoinen */
+  max-width: 1000px;
 }
 
-/* Yksittäinen vaihe */
-.process-step { padding: 0 10px; }
+.process-step {
+  padding: 0 10px;
+}
 
-/* Numeroympyrä */
 .step-badge {
   width: 84px;
   height: 84px;
-  margin: 0 auto 14px;
+  margin: 0 auto 14px auto;
   border-radius: 50%;
   background: #cfcfcf;
   display: grid;
@@ -570,14 +588,17 @@ section.portfolio .portfolio-item img {
   font-size: 1.25rem;
   color: #222;
 }
-i{
+
+/* Font Awesome -ikonit */
+i {
   font-size: 30px;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-/* Vaiheen otsikko + teksti */
 .process-step h3 {
-  margin: 0 0 6px;
+  margin: 0 0 6px 0;
   font-weight: 700;
 }
 
@@ -591,81 +612,45 @@ i{
   color: #2b2b2b;
 }
 
-
-
-
-/* ========================================================= */
-/* ================== RESPONSIVISUUS ======================== */
-/* ========================================================= */
-
+/* Prosessin responsiivisuus */
 @media (max-width: 980px) {
-  .hero-wrap {
-    grid-template-columns: 1fr;
-    padding: 24px;
-    gap: 24px;
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .hero-copy h1 {
-    max-width: 60ch;
-    text-align: center;
-    
-  }
-  .hero-actions { justify-content: center; }
-}
-
-/* Responsiivisuus */
-@media (max-width: 980px) {
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 560px) {
-  .process-grid { grid-template-columns: 1fr; }
-  .step-badge { width: 74px; height: 74px; }
-}
-
-
-/* Responsiivisuus */
-@media (max-width: 980px) {
-  .pricing-grid {
+  .process-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
   }
-  .features { max-width: 420px; }
+
+  .step-badge {
+    width: 74px;
+    height: 74px;
+  }
 }
 
-
-
-/* ===== Responsiivisuus ===== */
-@media (max-width: 980px) {
-  .hero-wrap {
-    grid-template-columns: 1fr;
-    padding: 22px;
-    gap: 18px;
-  }
-  .hero-copy h1 { max-width: 60ch; }
-}
-
-/* ---------- FOOTER ---------- */
-
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .site-footer {
-  background: #a79f93;              /* taustan sävy – säädä halutuksi */
-  color: #1d1d1b;                   /* teksti tumma */
-  padding: 2.5rem 0 1.25rem;
-  border-top: 1px solid #1d1d1b;    /* ohut viiva aivan yläreunaan */
-  margin-top: auto;                 /* sticky footer -tuki */
+  background: #a79f93;
+  color: #1d1d1b;
+  padding: 2.5rem 0 1.25rem 0;
+  border-top: 1px solid #1d1d1b;
+  margin-top: auto;
 }
 
-/* Kolme tasaleveyistä kolumnia keskellä */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2.5rem;
-  justify-content: center;   /* keskittää rivin containerin sisällä */
-  justify-items: center;     /* keskittää solujen sisällön vaakasuunnassa */
-  align-items: start;        /* kaikkien yläreunat linjaan */
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
   text-align: center;
 }
 
-/* Kolumnien sisäinen asettelu keskelle */
 .footer-brand,
 .footer-services,
 .footer-social {
@@ -675,9 +660,8 @@ i{
   margin-bottom: 0.5rem;
 }
 
-/* Nostetaan footerin vasemman kolumnin teksti linjaan muiden otsikoiden kanssa */
-.footer-brand { 
-  margin-top: -14px; /* säädä -4…-10px tarvittaessa */
+.footer-brand {
+  margin-top: -14px;
 }
 
 .footer-logo {
@@ -696,14 +680,12 @@ i{
 }
 
 .site-footer h4 {
-  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 700;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.75rem 0;
 }
 
-/* Palvelulista ja somelista ilman oletuslistatyylejä */
 .footer-services ul,
 .footer-social ul {
   list-style: none;
@@ -723,9 +705,11 @@ i{
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-.footer-services a:hover { text-decoration: underline; }
 
-/* Someikonit rivissä */
+.footer-services a:hover {
+  text-decoration: underline;
+}
+
 .footer-social ul {
   display: flex;
   gap: 0.75rem;
@@ -741,14 +725,17 @@ i{
   width: 36px;
   height: 36px;
   text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease;
 }
-.footer-social a:hover { transform: translateY(-2px); }
+
+.footer-social a:hover {
+  transform: translateY(-2px);
+}
 
 .footer-rule {
   border: none;
   border-top: 1px solid #6f6a62;
-  margin: 1.75rem auto 0.75rem;
+  margin: 1.75rem auto 0.75rem auto;
   width: min(720px, 90%);
 }
 
@@ -758,18 +745,17 @@ i{
   opacity: 0.9;
 }
 
-/* ---------- Footerin responsiivisuus ---------- */
+/* Footer responsiivisuus */
 @media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr;   /* pinotaan allekkain */
-    text-align: center;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   .footer-brand {
     display: grid;
     justify-items: center;
-    margin-top: 0; /* poistetaan negatiivinen marginaali mobiilissa */
+    margin-top: 0;
   }
 
   .footer-tagline {
