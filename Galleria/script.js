@@ -19,5 +19,13 @@ buttons.forEach(btn => {
   });
 });
 
+document.querySelector("#navbar-show-btn").addEventListener("click", () => {
+  document.querySelector("#navbar-collapse").classList.add("open");
+});
+
+document.querySelector("#navbar-close-btn").addEventListener("click", () => {
+  document.querySelector("#navbar-collapse").classList.remove("open");
+});
+
 // Show all by default
 document.querySelector('[data-category="all"]').click();

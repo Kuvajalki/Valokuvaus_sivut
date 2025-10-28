@@ -171,7 +171,8 @@ main {
   padding: 0px 0 60px; /* väli navin ja seuraavan osion kanssa */
 }
 
-.hero-header .container {
+.hero {
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
@@ -194,8 +195,8 @@ main {
 .hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* 👈 vie tekstin ja napit alas */
-  padding: 120px 56px 80px;  /* 👈 enemmän tilaa ylös, vähemmän alas */
+  justify-content: flex-end; /* vie tekstin ja napit alas */
+  padding: 120px 56px 80px;  /* enemmän tilaa ylös, vähemmän alas */
 }
 
 
