@@ -267,7 +267,7 @@ main {
   object-fit: cover;
   border-radius: inherit;
   background-color: #ECECEC; /* sulauttaa mahdolliset raot */
-  transform: scale(1.01);    /* häivyttää varjopikselit reunoilta */
+  transform: none;    /* häivyttää varjopikselit reunoilta */
 }
 
 /* ===== RESPONSIVE ===== */
