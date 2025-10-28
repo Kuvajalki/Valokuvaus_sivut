@@ -359,30 +359,158 @@ section.portfolio {
   padding-bottom: 20px;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin: 0 auto 60px auto;
+/* =========================================================
+   PORTFOLIO KARUSELLI (3 näkyvissä, keskimmäinen isompi)
+   Keskitys: napit ovat sisäleveyden reunoilla (5px sisään)
+   ========================================================= */
+
+/* Pääkontti keskelle */
+.carousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 40px auto;
 }
 
-.portfolio-item {
+/* Sisäinen leveys, jota napit "rajaavat" */
+.carousel-inner {
   position: relative;
-  background-color: #ccc;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Lava kuville */
+.carousel-stage {
+  position: relative;
+  height: clamp(260px, 42vw, 520px); /* skaalautuva korkeus */
+  z-index: 1;
+}
+
+/* Karusellin itemit ovat päällekkäin, asettelu luokilla */
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 60%;
+  height: 100%;
+  transform: translateX(-50%) scale(0.6);
+  opacity: 0;
+  pointer-events: none; /* vain keskikuva klikkautuu */
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
   border-radius: 8px;
   overflow: hidden;
+  background: #ccc; /* näkyy ennen kuin kuva latautuu */
 }
 
-.portfolio-item img {
+/* Kuvan täyttö */
+.carousel-item img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  border-radius: inherit;
 }
+
+/* Keskimmäinen (aktiivinen) */
+.carousel-item.is-center {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+  width: 60%;
+}
+
+/* Vasemman reunan kuva (hieman leveämpi) */
+.carousel-item.is-left {
+  transform: translateX(calc(-50% - 45%)) scale(0.9);
+  opacity: 0.95;
+  z-index: 2;
+  width: 52%;
+}
+
+/* Oikean reunan kuva (hieman leveämpi) */
+.carousel-item.is-right {
+  transform: translateX(calc(-50% + 45%)) scale(0.9);
+  opacity: 0.95;
+  z-index: 2;
+  width: 52%;
+}
+
+/* Napit (edellinen / seuraava) – sijoitetaan sisäleveyden reunoille, 5px sisään */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  z-index: 10;           /* yli kuvien */
+  pointer-events: auto;
+}
+
+/* Desktop: napit lasketaan keskitetyn 1000px leveän alueen reunoihin */
+.carousel-btn.prev {
+  left: calc(50% - 500px + 5px);   /* 500px = max-width/2 */
+}
+
+.carousel-btn.next {
+  right: calc(50% - 500px + 5px);
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(1.0);
+}
+
+/* ≤1000px: käytä suoraa 5px marginaalia reunoista */
+@media (max-width: 1000px) {
+  .carousel-btn.prev { left: 5px; }
+  .carousel-btn.next { right: 5px; }
+}
+
+/* Pienemmillä näytöillä hienosäätöä */
+@media (max-width: 900px) {
+  .carousel-item.is-left {
+    transform: translateX(calc(-50% - 38%)) scale(0.9);
+    width: 54%;
+  }
+  .carousel-item.is-right {
+    transform: translateX(calc(-50% + 38%)) scale(0.9);
+    width: 54%;
+  }
+  .carousel-item.is-center { width: 72%; }
+}
+
+/* Hyvin kapeilla näytöillä: korosta keskikuvaa */
+@media (max-width: 560px) {
+  .carousel-stage {
+    height: clamp(220px, 60vw, 360px);
+  }
+  .carousel-item.is-left,
+  .carousel-item.is-right {
+    transform: translateX(calc(var(--dir, -1) * 36% - 50%)) scale(0.8);
+    width: 42%;
+    opacity: 0.9;
+  }
+}
+
+
 
 .portfolio h2 {
   font-size: 28px;
