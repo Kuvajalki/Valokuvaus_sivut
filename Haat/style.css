@@ -305,20 +305,23 @@ main {
 #teksti1,
 .intro {
   text-align: center;
-  font-size: 15px;
+  
   line-height: 1.6;
-  padding: 40px 30px 80px 30px;
+  padding: 40px 30px 0px 30px;
   margin: 0 auto;
   max-width: 800px;
 }
 
 .intro h2 {
   margin: 0 0 8px 0;
+  font-size: 20px;
 }
 
 .intro p {
   margin: 0;
-  font-weight: 1000;
+  font-weight: 0;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 /* =========================================================
@@ -332,7 +335,7 @@ section.portfolio {
 .portfolio-box {
   background: #f2f2f2;
   text-align: center;
-  padding: 80px 20px;
+  padding: 30px 20px;
   border-radius: 0;
   margin: 0 auto;
 }
@@ -392,18 +395,18 @@ section.portfolio {
 .carousel-item {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 46%;
   width: 60%;
   height: 100%;
-  transform: translateX(-50%) scale(0.6);
+  transform: translate(-50%, 0) scale(0.6);  /* Changed this line */
   opacity: 0;
-  pointer-events: none; /* vain keskikuva klikkautuu */
+  pointer-events: none;
   transition:
     transform 0.4s ease,
     opacity 0.4s ease;
   border-radius: 8px;
   overflow: hidden;
-  background: #ccc; /* näkyy ennen kuin kuva latautuu */
+  background: #ccc;
 }
 
 /* Kuvan täyttö */
@@ -416,24 +419,24 @@ section.portfolio {
 
 /* Keskimmäinen (aktiivinen) */
 .carousel-item.is-center {
-  transform: translateX(-50%) scale(1);
+  transform: translate(-50%, 0) scale(1);    /* Changed this line */
   opacity: 1;
   z-index: 3;
   pointer-events: auto;
   width: 60%;
 }
 
-/* Vasemman reunan kuva (hieman leveämpi) */
+/* Vasemman reunan kuva */
 .carousel-item.is-left {
-  transform: translateX(calc(-50% - 45%)) scale(0.9);
+  transform: translate(calc(-100% - 20px), 0) scale(0.9);  /* Changed this line */
   opacity: 0.95;
   z-index: 2;
   width: 52%;
 }
 
-/* Oikean reunan kuva (hieman leveämpi) */
+/* Oikean reunan kuva */
 .carousel-item.is-right {
-  transform: translateX(calc(-50% + 45%)) scale(0.9);
+  transform: translate(20px, 0) scale(0.9);  /* Changed this line */
   opacity: 0.95;
   z-index: 2;
   width: 52%;
@@ -504,7 +507,7 @@ section.portfolio {
   }
   .carousel-item.is-left,
   .carousel-item.is-right {
-    transform: translateX(calc(var(--dir, -1) * 36% - 50%)) scale(0.8);
+    transform: translate(calc(var(--dir, -1) * 100%), 0) scale(0.8);  /* Changed this line */
     width: 42%;
     opacity: 0.9;
   }
@@ -519,7 +522,7 @@ section.portfolio {
 
 .portfolio p {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   max-width: 700px;
   margin: 0 auto 50px auto;
   line-height: 1.6;
