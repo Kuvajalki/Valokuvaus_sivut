@@ -219,6 +219,7 @@ main {
   font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
   color: #1d1d1b;
   max-width: 30ch;
+  font-family: "Montserrat", sans-serif;
 }
 
 .hero-copy h2 {
@@ -321,8 +322,8 @@ main {
 /* =========================================================
    INTROTEKSTI (tukee #teksti1 tai .intro)
    ========================================================= */
-#teksti1,
-.intro {
+
+#intro {
   text-align: center;
   line-height: 1.6;
   padding: 16px 20px 0 20px;
@@ -334,12 +335,14 @@ main {
   margin: 0 0 8px 0;
   font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.25rem);
   font-weight: 700;
+  font-family: "Montserrat", sans-serif;
 }
 
 .intro p {
   margin: 0;
   font-size: 0.98rem;
   font-weight: 500; /* poistettu virheellinen 0-arvo */
+  font-family: "Lora", serif;
 }
 
 /* =========================================================
@@ -518,6 +521,7 @@ section.portfolio {
 .portfolio h2 {
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
   margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .portfolio p {
@@ -526,6 +530,7 @@ section.portfolio {
   max-width: 700px;
   margin: 0 auto 30px auto;
   line-height: 1.6;
+  font-family: "Lora", serif;
 }
 
 .portfolio-btn {
