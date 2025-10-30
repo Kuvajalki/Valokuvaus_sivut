@@ -175,6 +175,7 @@ main {
   overflow: hidden;
   align-items: stretch;
   min-height: 550px;
+  height: 650px;
 }
 
 .hero-copy {
@@ -491,77 +492,301 @@ section.portfolio {
    HINNASTO
    ========================================================= */
 .pricing {
-  padding:60px 0 80px;
-  background:#ffffff;
+  padding: 60px 0 80px;
+  background: #ffffff;
 }
 
 .pricing h2 {
-  font-size: clamp(1.4rem,1.1rem + 1vw,1.75rem);
-  text-align:center;
-  margin-bottom:10px;
-  padding-bottom:15px;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
+  margin-bottom: 10px;
+  text-align: center;
+  padding-bottom: 15px;
 }
 
 .pricing-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
 }
 
-@media (max-width:980px) {
-  .pricing-grid { grid-template-columns:1fr; }
+.price-card {
+  background: #e9e7e7;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  padding: 26px 22px 28px;
+  text-align: center;
+}
+
+.price-card h3 {
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+}
+
+.price-block {
+  background: #f4f3f3;
+  border-radius: 12px;
+  padding: 12px 10px;
+  margin: 12px 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.price-block h4 {
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.price-block p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.features {
+  list-style: disc;
+  text-align: left;
+  margin: 14px auto 0 auto;
+  padding-left: 22px;
+  max-width: 260px;
+}
+
+.features li { margin: 6px 0; }
+
+.pricing-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.btn-quote {
+  display: inline-block;
+  background: #333333;
+  color: #fff;
+  padding: 10px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease;
+}
+
+.btn-quote:hover { transform: translateY(-2px); }
+.btn-quote:active { transform: translateY(0); }
+
+/* Hinnaston responsiivisuus */
+@media (max-width: 980px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .features { max-width: 420px; }
+
+  
+  
 }
 
 /* =========================================================
-   PROSESSI
+   PROSESSI / NÄIN ETENEMME
    ========================================================= */
 .process {
-  background:transparent;
-  padding:48px 0 56px;
+  background: transparent;
+  padding: 48px 0 56px 0;
 }
 
 .process .container {
-  background:#ececec;
-  padding:36px 0 44px;
-  border-radius:0;
-  text-align:center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background: #ececec;
+  padding: 36px 0 44px 0;
+  border-radius: 0;
+}
+
+.process h2 {
+  margin: 0 0 24px 0;
+  font-weight: 700;
 }
 
 .process-grid {
-  list-style:none;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:28px;
-  max-width:1000px;
-  margin:0 auto;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
+  max-width: 1000px;
 }
 
-@media (max-width:980px) {
-  .process-grid { grid-template-columns:repeat(2,1fr); }
+.process-step { padding: 0 10px; }
+
+.step-badge {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px auto;
+  border-radius: 50%;
+  background: #cfcfcf;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
 }
 
-@media (max-width:560px) {
-  .process-grid { grid-template-columns:1fr; }
+/* Font Awesome -ikonit */
+i {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.process-step h3 {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.process-step p {
+  margin: 0;
+  line-height: 1.55;
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Lora", serif;
+  color: #2b2b2b;
+}
+
+/* Prosessin responsiivisuus */
+@media (max-width: 980px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .step-badge { width: 74px; height: 74px; }
 }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .site-footer {
-  background:#a79f93;
-  color:#1d1d1b;
-  padding:2.5rem 0 1.25rem;
-  border-top:1px solid #1d1d1b;
-  margin-top:auto;
+  background: #a79f93;
+  color: #1d1d1b;
+  padding: 2.5rem 0 1.25rem 0;
+  border-top: 1px solid #1d1d1b;
+  margin-top: auto;
 }
 
 .footer-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:2rem 2.5rem;
-  text-align:center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
+  text-align: center;
 }
 
-@media (max-width:900px) {
-  .footer-grid { grid-template-columns:1fr; }
+.footer-brand,
+.footer-services,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand { margin-top: -14px; }
+
+.footer-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.footer-tagline {
+  font-family: "Lora", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.site-footer h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+}
+
+.footer-services ul,
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-services ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-services a {
+  color: #1d1d1b;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.footer-services a:hover { text-decoration: underline; }
+
+.footer-social ul {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social a {
+  color: #1d1d1b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.footer-social a:hover { transform: translateY(-2px); }
+
+.footer-rule {
+  border: none;
+  border-top: 1px solid #6f6a62;
+  margin: 1.75rem auto 0.75rem auto;
+  width: min(720px, 90%);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Footer responsiivisuus */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .footer-brand {
+    display: grid;
+    justify-items: center;
+    margin-top: 0;
+  }
+  .footer-tagline { max-width: 28ch; }
 }
