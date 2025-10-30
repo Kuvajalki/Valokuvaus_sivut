@@ -26,6 +26,14 @@ body {
   
 }
 
+body h2, body h3, body h4 {
+  font-family: "Montserrat", serif;
+}
+
+body p {
+  font-family: "Lora", serif;
+}
+
 main {
   flex: 1 0 auto;
   padding-bottom: 40px;
