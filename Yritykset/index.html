@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Yritykset/style.css" />
->
+  
   <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -40,7 +40,7 @@
             <a href="../Haat/index.html" class="nav-link">Häät</a>
           </li>
           <li class="nav-item">
-            <a href="../Juhlat/index.html" class="nav-link">Juhlat & Tilaisuudet</a>
+            <a href="../Juhlat/index.html" class="nav-link">Juhlat</a>
           </li>
           <li class="nav-item">
             <a href="../Yritykset/index.html" class="nav-link">Yritykset</a>
@@ -49,7 +49,10 @@
             <a href="../Artistit/index.html" class="nav-link">Artistit</a>
           </li>
           <li class="nav-item">
-            <a href="../Henkilo/index.html" class="nav-link">Henkilö- & Eläinkuvaus</a>
+            <a href="../Henkilo/index.html" class="nav-link">Potretit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Ota_Yhteytta/index.html" class="nav-link">Ota Yhteyttä</a>
           </li>
         </ul>
       </div>
@@ -64,16 +67,14 @@
     <div class="hero-wrap">
       <!-- Vasen: teksti + napit -->
       <div class="hero-copy">
-        <h1>
-          Yrityskuvaus, joka vahvistaa brändiänne 
-        </h1>
-        <h3>
-          Tuotekuvista henkilöstökuviin, yritystiloista tapahtumiin - luomme visuaalista sisältöä, joka kertoo yrityksenne tarinan ammattimaisesti. Laadukkaalla kuvauksella erottutte kilpailijoistanne.
-        </h3>
+        <h1>Yrityskuvaus & videotuotanto </h1>
+        <h2>
+          Laadukas yrityskuvaus ja videotuotanto ovat nykyään välttämättömiä. Autamme kertomaan tarinanne tavalla, joka vakuuttaa asiakkaat, sitouttaa henkilöstön ja tukee kasvua. 
+        </h2>
 
         <div class="hero-actions">
           <a href="#galleria" class="btn btn--dark">Selaa Galleriaa</a>
-          <a href="#hinnasto" class="btn btn--light">Tutustu hinnastoon</a>
+          <a href="#hinnasto" class="btn btn--light">Tutustu palveluihin</a>
         </div>
       </div>
 
@@ -81,7 +82,7 @@
       <figure class="hero-media">
         <img
           src="../img/Yritykset-vaaka.jpg"
-          alt="Iloinen kuva juhlijoista tötteröhatut päässä"
+          alt="Hääpari kaariholvin alla"
         />
       </figure>
     </div>
@@ -96,33 +97,193 @@
   <main>
     <div id="teksti1">
         <h2>
-        Yritysmaailmassa ensivaikutelma on ratkaiseva. Ammattitaitoisella kuvauksella varmistamme, että yrityksenne näyttää parhaalta mahdolliselta jokaisessa kanavassa. Kuvaamme tuotteitanne, henkilöstöänne ja tilojanne tavalla, joka tukee liiketoimintatavoitteitanne.
+        Investointi, joka rakentaa luottamusta ja erottaa kilpailijoista
         </h2>
+        <p>
+        Laadukas video- ja valokuvasisältö on investointi, joka selkeyttää viestiänne ja tehostaa markkinointianne 
+        kaikissa kanavissa. Toimimme luotettavana kumppanina koko Suomen alueella. 
+        Ymmärrämme liiketoimintanne tavoitteet ja autamme saavuttamaan ne visuaalisen tarinankerronnan keinoin.
+        </p>
     </div>
-
-<section class="portfolio">
+    <section class="portfolio" id="galleria">
   <div class="container">
     <div class="portfolio-box">
-      <h2>Portfolio</h2>
+      <h2>Portfolio: Esimerkkejä projekteista</h2>
       <p>
-        Jokaisella yrityksellä on ainutlaatuinen tarina kerrottavana.
-        Katso miten olen auttanut yrityksiä luomaan vahvaa visuaalista
-        identiteettiä tuotekuvista henkilöstökuviin ja yritystilojen esittelyyn.
+        Olemme auttaneet erilaisia yrityksiä kirkastamaan brändiään ja tehostamaan viestintäänsä. Tässä muutama esimerkki siitä, 
+        miten olemme ratkaisseet asiakkaidemme haasteita laadukkaalla kuva- ja videosisällöllä.
       </p>
 
-      <div class="portfolio-grid">
-        <div class="portfolio-item"></div>
-        <div class="portfolio-item"></div>
-        <div class="portfolio-item"></div>
-        <div class="portfolio-item"></div>
-        <div class="portfolio-item"></div>
-        <div class="portfolio-item"></div>
-      </div>
+      <section class="video-section">
+  
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jz3zyfMXKAw?si=XkFNpLJnZ_wbdpFE" 
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </section>
 
-      <button class="portfolio-btn">Tutustu Galleriaan</button>
+
+<!-- KARUSELLI: näyttö 3 kuvaa (keskimmäinen isompi) -->
+<div
+  class="carousel"
+  id="portfolio-carousel"
+  aria-roledescription="karuselli"
+  aria-label="Yrityskuvien karuselli"
+>
+
+  <button
+    class="carousel-btn prev"
+    type="button"
+    aria-label="Edellinen kuva"
+  >
+    ‹
+  </button>
+
+  <div class="carousel-inner">
+    <div class="carousel-stage">
+
+      <figure class="carousel-item" data-index="0">
+        <img src="../img/Haat-1.jpg" alt="Hääkuva 1" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="1">
+        <img src="../img/Haat-2.jpg" alt="Hääkuva 2" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="2">
+        <img src="../img/Haat-3.jpg" alt="Hääkuva 3" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="3">
+        <img src="../img/Haat-4.jpg" alt="Hääkuva 4" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="4">
+        <img src="../img/Haat-5.jpg" alt="Hääkuva 5" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="5">
+        <img src="../img/Haat-6.jpg" alt="Hääkuva 6" loading="lazy">
+      </figure>
+
+    </div>
+  </div>
+
+  <button
+    class="carousel-btn next"
+    type="button"
+    aria-label="Seuraava kuva"
+  >
+    ›
+  </button>
+
+</div>
+
+
+      <a
+        href="https://www.instagram.com/kuvajalki?igsh=MnY0amo5YzYzcDU3"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="portfolio-btn"
+        aria-label="Avaa Instagram"
+      >
+      Avaa Instagram
+      </a>
     </div>
   </div>
 </section>
+
+<!-- HINNASTO / PAKETIT -->
+<section class="pricing" id="hinnasto">
+  <div class="container">
+    <h2>Visuaaliset ratkaisut yrityksille</h2>
+    <p>Räätälöimme aina ratkaisun, joka vastaa parhaiten juuri teidän tavoitteitanne ja budjettianne.
+      <br>Palvelemme yrityksiä monipuolisesti esimerkiksi seuraaville osa-aluiella:
+    </p>
+    <div class="pricing-grid">
+      <!-- Kortti 1 -->
+      <article class="price-card">
+        <h3>Brändivideot ja yritystarinat</h3>
+
+        <div class="price-block">
+          
+          <p>Vaikuttava brändivideo kiteyttää yrityksenne ytimen ja luo vahvan tunnesiteen asiakkaisiin. 
+            Toteutamme kaiken ideoinnista ja käsikirjoituksesta ammattimaiseen kuvaukseen ja editointiin.</p>
+        </div>
+
+
+      </article>
+
+      <!-- Kortti 2 -->
+      <article class="price-card">
+        <h3>Tuloksellista somesisältöä </h3>
+
+        <div class="price-block">
+          
+          <p>Tuotamme säännöllistä ja laadukasta markkinointivideota ja kuvamateriaalia sosiaalisen median kanaviinne. 
+            Nopeatempoiset somevideot ja laadukkaat kuvapankit sitouttavat ja aktivoivat kohderyhmäänne tehokkaasti.</p>
+        </div>
+
+      
+      </article>
+
+      <!-- Kortti 3 -->
+      <article class="price-card">
+        <h3>Laadukas henkilöstökuvaus</h3>
+
+        <div class="price-block">
+          
+          <p>Ammattimaiset henkilöstökuvat ja asiantuntijapotretit ovat yrityksenne käyntikortti. 
+            Taltioimme myös yrityksenne tärkeät hetket, kuten seminaarit, juhlat ja lanseeraukset, laadukkaalla tapahtumakuvauksella.</p>
+        </div>
+
+        
+      </article>
+
+      
+    </div>
+
+    <p>Hinnoittelumme perustuu aina projektikohtaiseen tarjoukseen, jossa huomioimme työn laajuuden.</p>
+
+    <div class="pricing-cta">
+      <a href="../Ota_Yhteytta/index.html" class="btn-quote">Kysy tarjous</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROSESSI / NÄIN ETENEMME -->
+<section class="process">
+  <div class="container">
+    <h2>Selkeä prosessi, vaikuttava lopputulos</h2>
+
+    <ol class="process-grid">
+      <li class="process-step">
+        <div class="step-badge" ><i class="fa-solid fa-handshake"></i></div>
+        
+        <h3>Tavoitteet &amp; suunnitelma</h3>
+        <p>Kaikki alkaa tavoitteistanne. Keskustellaan yhdessä, mitä haluatte saavuttaa, ja luomme selkeän suunnitelman sen toteuttamiseksi.</p>
+      </li>
+
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-calendar"></i></div>
+        
+        <h3>Kuvaus &amp; <br>toteutus</h3>
+        <p>Hoidamme kuvaukset ammattitaidolla ja tehokkaasti, sovitun suunnitelman ja aikataulun mukaisesti.</p>
+      </li>
+
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-church"></i></div>
+        <h3>Jälkituotanto &amp; hyväksyntä</h3>
+        <p>Viimeistelemme materiaalin huolella ja toimitamme sen teille kommentoitavaksi, jotta lopputulos vastaa täysin odotuksianne.</p>
+      </li>
+
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-envelope-circle-check"></i></div>
+        <h3>Toimitus &amp; <br>Tulokset</h3>
+        <p>Saatte valmiit, laadukkaat materiaalit käyttöösi sovituissa formaateissa, valmiina tukemaan liiketoimintaanne.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+
 
 </main>
 
@@ -156,7 +317,7 @@
         <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
         <li><a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a></li>
         <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
-        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.instagram.com/kuvajalki?igsh=MnY0amo5YzYzcDU3" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
       </ul>
     </div>
   </div>
