@@ -23,7 +23,17 @@ body {
   padding-top: var(--nav-h);
 }
 
-main { flex: 1 0 auto; padding-bottom: 40px; }
+body h2, body h3, body h4 {
+  font-family: "Montserrat", serif;
+}
+
+body p {
+  font-family: "Lora", serif;
+}
+
+main { flex: 1 0 auto; padding-bottom: 40px; 
+  
+}
 
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
@@ -263,8 +273,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
 /* =========================================================
    INTROTEKSTI (#teksti1 tai .intro)
    ========================================================= */
-#teksti1,
-.intro {
+#intro {
   text-align: center;
   line-height: 1.6;
   padding: 16px 20px 0 20px;
@@ -272,19 +281,19 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   max-width: 800px;
 }
 
-#teksti1 h2,
-.intro h2 {
+#intro h2
+ {
   margin: 0 0 8px 0;
   font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.25rem);
   font-weight: 700;
-  font-family: "Lora", serif;
+  font-family: "Montserrat", serif;
 }
 
-#teksti1 p,
-.intro p {
+#intro p {
   margin: 0;
   font-size: 0.98rem;
   font-weight: 500;
+  font-family: "Lora", serif;
 }
 
 /* =========================================================

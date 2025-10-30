@@ -8,6 +8,14 @@ body {
   color: #222;
 }
 
+body h2, body h3, body h4 {
+  font-family: "Montserrat", serif;
+}
+
+body p {
+  font-family: "Lora", serif;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
