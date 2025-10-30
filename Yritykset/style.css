@@ -1,18 +1,20 @@
 /* =========================================================
    YLEISET ASETUKSET (responsiivinen perusta)
    ========================================================= */
-:root{
-  /* Kiinteän navin korkeus (päivitä jos logoa kasvatetaan) */
-  --nav-h: 84px;
+
+
+/* global base font: body text uses Lora */
+html, body { height: 100%; font-family: "Lora", serif; }
+
+/* ensure all headings use Montserrat */
+h1, h2, h3, h4, h5, h6, .nav-item {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
 }
-
-html, body { height: 100%; }
-
-*, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Lora", serif; /* ← base text uses Lora */
   background-color: #fff;
   color: #222;
   display: flex;
@@ -23,13 +25,7 @@ body {
   padding-top: var(--nav-h);
 }
 
-body h2, body h3, body h4 {
-  font-family: "Montserrat", serif;
-}
 
-body p {
-  font-family: "Lora", serif;
-}
 
 main { flex: 1 0 auto; padding-bottom: 40px; 
   
@@ -54,13 +50,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
    ========================================================= */
 .navbar {
   position: fixed;
-  inset: 0 0 auto 0; /* top:0; left:0; right:0 */
+  top: 0;
+  left: 0;
+  right: 0;
+  
   z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #eee;
-  height: var(--nav-h);
-  display: flex;
-  align-items: center;
 }
 
 .navbar .container {
@@ -68,6 +64,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  padding: 1rem 0;
 }
 
 .site-brand img {
@@ -107,7 +104,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   transition: transform 0.4s ease;
 }
 
-.navbar-nav .nav-link:hover { color: #b97c2c; }
+.navbar-nav .nav-link:hover {
+  color: #b97c2c;
+}
+
 .navbar-nav .nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -210,7 +210,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   line-height: 1.6;
   color: #2b2b2b;
   max-width: 48ch;
-  font-family: "Lora", serif;
+  
 }
 
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -285,15 +285,15 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
  {
   margin: 0 0 8px 0;
   font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.25rem);
-  font-weight: 700;
-  font-family: "Montserrat", serif;
+  font-weight: 600;
+  
 }
 
 #intro p {
   margin: 0;
   font-size: 0.98rem;
   font-weight: 500;
-  font-family: "Lora", serif;
+  
 }
 
 /* =========================================================
@@ -456,7 +456,7 @@ section.portfolio { padding: 80px 0; background: transparent; }
 .portfolio h2 {
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
   margin-bottom: 10px;
-  font-family: "Lora", serif;
+  font-family: "Montserrat", sans-serif; /* heading should use Montserrat */
 }
 
 .portfolio p {
@@ -469,7 +469,7 @@ section.portfolio { padding: 80px 0; background: transparent; }
 
 .portfolio-btn {
   background-color: #333333;
-  font-family: "Montserrat", sans-serif;
+  
   font-weight: 600;
   border: none;
   padding: 10px 30px;
@@ -498,7 +498,7 @@ section.portfolio { padding: 80px 0; background: transparent; }
   margin-bottom: 10px;
   text-align: center;
   padding-bottom: 15px;
-  font-family: "Lora", serif;
+  font-family: "Montserrat", sans-serif; /* heading should use Montserrat */
 }
 
 .pricing-grid {
@@ -592,7 +592,7 @@ section.portfolio { padding: 80px 0; background: transparent; }
   border-radius: 0;
 }
 
-.process h2 { margin: 0 0 24px 0; font-weight: 700; font-family: "Lora", serif; }
+.process h2 { margin: 0 0 24px 0; font-weight: 700; font-family: "Montserrat", sans-serif; }
 
 .process-grid {
   list-style: none; /* HTML:ssa on <ol>, piilotetaan numerot */
