@@ -580,6 +580,10 @@ section.portfolio {
   text-align: center;
   padding-bottom: 15px;
 }
+.pricing p{
+  text-align: center;
+  padding: 20px 20px 0 20px;
+}
 
 .pricing-grid {
   display: grid;
