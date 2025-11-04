@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuvajälki – Potretit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Henkilo/style.css" />
+  
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+  <nav class="navbar">
+    <div class="container flex">
+      <a href="../Etusivu/" class="site-brand">
+        <img src="../img/logo.svg" alt="Kuvajälki logo" />
+      </a>
+
+      <!-- Open (hamburger) button -->
+      <button type="button" id="navbar-show-btn" aria-label="Avaa valikko">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible menu -->
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" aria-label="Sulje valikko">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="navbar-nav">
+  
+          <li class="nav-item">
+            <a href="../Haat/index.html" class="nav-link">Häät</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Juhlat/index.html" class="nav-link">Juhlat</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Yritykset/index.html" class="nav-link">Yritykset</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Artistit/index.html" class="nav-link">Artistit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Henkilo/index.html" class="nav-link">Potretit</a>
+          </li>
+          <li class="nav-item">
+            <a href="../Ota_Yhteytta/index.html" class="nav-link">Ota Yhteyttä</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar end -->
+
+  <!-- HERO HEADER -->
+<section class="hero-header">
+  <div class="container">
+    <div class="hero-wrap">
+      <!-- Vasen: teksti + napit -->
+      <div class="hero-copy">
+         <h1>Potrettikuvaus ja Henkilökuvaus</h1>
+         <h2>
+          Olipa kyseessä sitten sinä itse, perheesi tai rakas lemmikkisi, 
+          me autamme ikuistamaan sen ainutlaatuisen persoonan ja yhteyden, joka tekee teistä teidät.<Br>
+            Tavoitteena on luoda aitoja ja kauniita kuvia, jotka kestävät aikaa.
+            
+         </h2>
+
+        <div class="hero-actions">
+          <a href="#galleria" class="btn btn--dark">Katso potrettikuvia</a>
+          <a href="#hinnasto" class="btn btn--light">Kysy kuvausaikaa</a>
+        </div>
+      </div>
+
+      <!-- Oikea: kuva -->
+      <figure class="hero-media">
+        <img
+          src="../img/Potretit/Henkilokuvat-vaaka.jpg"
+          alt="Nainen hymyilee kameralle puistossa"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- /HERO HEADER -->
+      
+
+
+  </header>
+  
+  <main>
+    <div id="intro">
+       <h2>
+        Rento kuvauskokemus, jossa saat olla oma itsesi
+       </h2>
+        <p>
+        Moni jännittää kameran edessä olemista – se on täysin normaalia! 
+        Meidän tehtävämme on luoda rento ja mukava ilmapiiri, jossa voit unohtaa kameran. 
+        Ohjaamme sinua lempeästi ja kannustavasti, jotta lopputuloksena on kuvia, joissa näytät ja tunnet olosi hyväksi. 
+        </p>
+    </div>
+<!-- PORTFOLIO / GALLERIA -->
+    <section class="portfolio" id="galleria">
+  <div class="container">
+    <div class="portfolio-box">
+      <h2>Persoonallisia potretteja ja aitoja hetkiä</h2>
+      <p>
+        Selaa galleriaamme ja näe esimerkkejä erilaisista henkilö-, perhe- ja lemmikkikuvauksista. 
+        Jokainen kuva kertoo tarinan ainutlaatuisesta persoonasta tai yhteydestä, rennosti ja luonnollisesti taltioituna.
+      </p>
+
+
+
+<!-- KARUSELLI: näyttö 3 kuvaa (keskimmäinen isompi) -->
+<div
+  class="carousel"
+  id="portfolio-carousel"
+  aria-roledescription="karuselli"
+  aria-label="Hääkuvien karuselli"
+>
+
+  <button
+    class="carousel-btn prev"
+    type="button"
+    aria-label="Edellinen kuva"
+  >
+    ‹
+  </button>
+
+  <div class="carousel-inner">
+    <div class="carousel-stage">
+
+      <figure class="carousel-item" data-index="0">
+        <img src="../img/Potretit/Anna0002.jpg" alt="Hääkuva 1" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="1">
+        <img src="../img/Potretit/arvonta0001.jpg" alt="Hääkuva 2" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="2">
+        <img src="../img/Potretit/Koirat0012.jpg" alt="Hääkuva 3" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="3">
+        <img src="../img/Potretit/Parikuvat0009.jpg" alt="Hääkuva 4" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="4">
+        <img src="../img/Potretit/Koirat0015.jpg" alt="Hääkuva 5" loading="lazy">
+      </figure>
+      <figure class="carousel-item" data-index="5">
+        <img src="../img/Potretit/Sini0021.jpg" alt="Hääkuva 6" loading="lazy">
+      </figure>
+
+    </div>
+  </div>
+
+  <button
+    class="carousel-btn next"
+    type="button"
+    aria-label="Seuraava kuva"
+  >
+    ›
+  </button>
+
+</div>
+
+
+      <a
+        href="https://www.instagram.com/kuvajalki?igsh=MnY0amo5YzYzcDU3"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="portfolio-btn"
+        aria-label="Avaa Instagram"
+      >
+      Avaa Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HINNASTO / PAKETIT -->
+<section class="pricing" id="hinnasto">
+  <div class="container">
+    <h2>Henkilökuvauksen hinta & palvelut</h2>
+    <p>
+      Räätälöimme aina kokonaisuuden toiveidesi mukaan. Alla näet esimerkkejä yleisimmistä kuvaustyypeistämme ja niiden alkaen-hinnoista. 
+      <br>Lopullinen hinta muodostuu kuvausajasta, paikasta ja valittujen kuvien määrästä.
+    </p>
+    <div class="pricing-grid">
+      <!-- Kortti 1 -->
+      <article class="price-card">
+        <h3>Ammattimainen CV- & profiilikuvaus</h3>
+
+        <div class="price-block">
+          <h4>Alkaen 200€ (sis. alv)</h4>
+          <p>Erotu eduksesi LinkedInissä ja työhaussa. Kuvaus rennosti miljöössä tai studiossa. 
+            </p>
+        </div>
+
+        <ul class="features">
+          <li>3 viimeisteltyä digikuvaa</li>
+          
+          
+        </ul>
+      </article>
+
+      <!-- Kortti 2 -->
+      <article class="price-card">
+        <h3>Rento perhekuvaus ja lapsikuvaus miljöössä</h3>
+
+        <div class="price-block">
+          <h4>Alkaen 350€ (sis. alv)</h4>
+          <p>Aitoja hetkiä yhdessä tärkeimpien kanssa. Lapsi- ja perhekuvat leikin lomassa.
+            <br>Sopii myös odotusajan kuvaukseen tai ystäväporukoille.
+          </p>
+        </div>
+
+
+        
+      </article>
+
+      <!-- Kortti 3 -->
+      <article class="price-card">
+        <h3>Persoonallinen <br>lemmikkikuvaus</h3>
+
+        <div class="price-block">
+          <h4>250€ (sis. alv)</h4>
+          <p>Taltioidaan karvaisen ystäväsi persoona. 
+            Koirakuvaus, kissakuvaus tai muiden lemmikkien kuvaus eläimen ehdoilla, tutussa ympäristössä.</p>
+        </div>
+
+        
+      </article>
+
+    </div>
+
+     <p>
+        Paras tapa saada tarkka hinta juuri sinun ideallesi on ottaa meihin yhteyttä.<br> 
+        Keskustellaan hetki, niin suunnitellaan yhdessä täydellinen kuvaus ja annamme sille selkeän hinnan.
+      </p>
+
+    <div class="pricing-cta">
+      <a href="../Yhteystiedot/index.html" class="btn-quote">Kysy tarjous</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROSESSI / NÄIN ETENEMME -->
+<section class="process">
+  <div class="container">
+    <h2>Miten kuvaus etenee? Helposti ja rennosti</h2>
+
+    <ol class="process-grid">
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-lightbulb"></i></div>
+        <h3>Ideoidaan <br>yhdessä</h3>
+        <p>Ota yhteyttä ja kerro toiveistasi. Jutellaan hetki ja suunnitellaan juuri sinulle sopiva kuvaus.</p>
+      </li>
+
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-camera"></i></div>
+        <h3>Kuvaus <br>hetki</h3>
+        <p>Tavataan sovitussa paikassa. Ei tarvitse jännittää – pidetään hauskaa ja luodaan rennossa ilmapiirissä kauniita kuvia.</p>
+      </li>
+
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-images"></i></div>
+        <h3>Valitse <br>suosikkisi</h3>
+        <p>Saat kuvausten jälkeen esikatselugallerian, josta voit rauhassa valita ne kuvat, jotka haluat meidän viimeistelevän.</p>
+      </li>
+
+      <li class="process-step">
+        <div class="step-badge"><i class="fa-solid fa-envelope-circle-check"></i></div>
+        <h3>Valmiit <br>kuvat</h3>
+        <p>Käsittelemme valitsemasi kuvat huolella ja toimitamme ne sinulle digitaalisesti sovitussa aikataulussa.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <!-- VASEN: logo + kuvaus -->
+    <div class="footer-brand">
+      <img src="../img/logo.svg" alt="Kuvajälki" class="footer-logo">
+      <p class="footer-tagline">
+        Ammattitaitoista valokuvausta elämän tärkeimmille hetkille.
+      </p>
+    </div>
+
+    <!-- KESKI: Palvelut-linkit -->
+    <nav class="footer-services" aria-label="Palvelut">
+      <h4>Palvelut</h4>
+      <ul>
+        <li><a href="../Haat/index.html">Häät</a></li>
+        <li><a href="../Juhlat/index.html">Juhlat &amp; Tilaisuudet</a></li>
+        <li><a href="../Yritykset/index.html">Yritykset</a></li>
+        <li><a href="../Artistit/index.html">Artistit</a></li>
+        <li><a href="../Henkilokuvaus/index.html">Henkilö &amp; Eläinkuvaus</a></li>
+      </ul>
+    </nav>
+
+    <!-- OIKEA: Seuraa, tässä ikonit sosiaalisiin medioihin -->
+    <div class="footer-social">
+      <h4>Seuraa</h4>
+      <ul>
+        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a></li>
+        <li><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="footer-rule" />
+
+  <div class="container footer-bottom">
+    <p>Kuvajälki 2025. Kaikki oikeudet pidetään</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
