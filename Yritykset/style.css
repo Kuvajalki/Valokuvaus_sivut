@@ -1,43 +1,49 @@
 /* =========================================================
    YLEISET ASETUKSET (responsiivinen perusta)
    ========================================================= */
-
-
-/* global base font: body text uses Lora */
-html, body { height: 100%; font-family: "Lora", serif; }
-
-/* ensure all headings use Montserrat */
-h1, h2, h3, h4, h5, h6, .nav-item {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
+html,
+body {
+  height: 100%;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 
 body {
   margin: 0;
-  font-family: "Lora", serif; /* ← base text uses Lora */
+  font-family: "Montserrat", sans-serif;
   background-color: #fff;
   color: #222;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  -webkit-text-size-adjust: 100%;
-  /* Estää navin peittämästä ensimmäistä osiota */
-  padding-top: var(--nav-h);
-}
-
-
-
-main { flex: 1 0 auto; padding-bottom: 40px; 
+  -webkit-text-size-adjust: 100%; /* iOS zoom -bugien ehkäisy */
   
 }
 
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+body h2, body h3, body h4 {
+  font-family: "Montserrat", serif;
+}
 
-/* apuluokka: html käyttää .flex */
-.flex { display: flex; align-items: center; gap: 12px; }
+body p {
+  font-family: "Lora", serif;
+}
 
-/* Näppäimistöfokus näkyväksi */
-a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offset: 2px; }
+main {
+  flex: 1 0 auto;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 /* Pienillä näytöillä hieman suurempi riviväli ja marginaalit */
 @media (max-width: 560px) {
@@ -53,7 +59,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   top: 0;
   left: 0;
   right: 0;
-  
   z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #eee;
@@ -126,17 +131,24 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
 }
 
 /* Desktopissa valikko näkyy rivillä */
-#navbar-collapse { display: flex; }
+#navbar-collapse {
+  display: flex;
+}
 
+/* =========================================================
+   MOBIILINAVI
+   ========================================================= */
 @media (max-width: 768px) {
-  #navbar-show-btn { display: block; }
+  #navbar-show-btn {
+    display: block;
+  }
 
   #navbar-collapse {
     position: fixed;
     top: 0;
     right: -100%;
     width: min(92vw, 320px);
-    height: 100dvh;
+    height:100dvh; /* varma koko mobiilissa */
     background: #fff;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
@@ -154,7 +166,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   }
 
   /* JS lisää .open kun valikko avataan */
-  #navbar-collapse.open { right: 0; }
+  #navbar-collapse.open {
+    right: 0;
+  }
 
   .navbar-nav {
     flex-direction: column;
@@ -162,18 +176,28 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
     margin-top: 3.25rem;
   }
 
-  .nav-link { font-size: 1.05rem; }
+  .nav-link {
+    font-size: 1.05rem;
+  }
 }
 
 /* Korjaus ankkurihyppäykselle kiinteän navin kanssa */
-#galleria, #hinnasto { scroll-margin-top: calc(var(--nav-h) + 8px); }
+#galleria,
+#hinnasto {
+  scroll-margin-top: 80px;
+}
 
 /* =========================================================
    HERO-OSIO
    ========================================================= */
-.hero-header { background: #ffffff; padding: 0 0 60px; }
+.hero-header {
+  background: #ffffff;
+  padding: 0 0 60px;
+}
 
-.hero-header .container { padding: 0 16px; }
+.hero-header .container {
+  padding: 0 16px;
+}
 
 .hero-wrap {
   display: grid;
@@ -184,7 +208,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   padding: 0;
   overflow: hidden;
   align-items: stretch;
-  
+  min-height: 550px;
+  height: 650px;
 }
 
 .hero-copy {
@@ -201,6 +226,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
   color: #1d1d1b;
   max-width: 30ch;
+  font-family: "Montserrat", sans-serif;
 }
 
 .hero-copy h2 {
@@ -210,16 +236,20 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   line-height: 1.6;
   color: #2b2b2b;
   max-width: 48ch;
-  
+  font-family: "Lora", serif;
 }
 
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 44px;          /* kosketusystävällinen */
   padding: 10px 18px;
   border-radius: 12px;
   font-weight: 600;
@@ -228,27 +258,41 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
+.btn:hover {
+  transform: translateY(-1px);
+}
 
-.btn--dark { background: #333333; color: #fff; }
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--dark {
+  background: #333333;
+  color: #fff;
+}
+
 .btn--light {
-  background: #ffffff; color: #222;
+  background: #ffffff;
+  color: #222;
   box-shadow: inset 0 0 0 1px #d9d9d9;
 }
 
-.hero-media { margin: 0; border-radius: 0; overflow: hidden; 
-;
-}
-.hero-media img {
-  display: block; width: 100%; height: 100%;
-  object-fit:cover; background-color: #ececec;
+.hero-media {
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
 }
 
+.hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #ececec;
+}
+
+/* Hero responsiivisuus */
 @media (max-width: 980px) {
-  .hero-media{
-    aspect-ratio: 16/10;
-  }
   .hero-wrap {
     grid-template-columns: 1fr;
     padding: 24px;
@@ -264,15 +308,28 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
     padding-right: 28px;
   }
 
-  .hero-copy h1 { max-width: 60ch; text-align: center; }
-  .hero-actions { justify-content: center; }
-  .hero-media { margin: 8px 8px 0; }
-  .hero-media img { height: clamp(260px, 55vw, 360px); }
+  .hero-copy h1 {
+    max-width: 60ch;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-media {
+    margin: 8px 8px 0;
+  }
+
+  .hero-media img {
+    height: clamp(260px, 55vw, 360px); /* luonnollinen korkeus mobiilissa */
+  }
 }
 
 /* =========================================================
-   INTROTEKSTI (#teksti1 tai .intro)
+   INTROTEKSTI (tukee #teksti1 tai .intro)
    ========================================================= */
+
 #intro {
   text-align: center;
   line-height: 1.6;
@@ -281,35 +338,39 @@ a:focus-visible, button:focus-visible { outline: 3px solid #0ea5e9; outline-offs
   max-width: 800px;
 }
 
-#intro h2
- {
+#intro h2 {
   margin: 0 0 8px 0;
-  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.25rem);
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
   font-weight: 600;
-  
 }
 
 #intro p {
   margin: 0;
-  font-size: 0.98rem;
-  font-weight: 500;
-  
+  font-size: 1rem;
+  font-weight: 500; 
+  line-height: 1.6;
 }
 
 /* =========================================================
    PORTFOLIO
    ========================================================= */
-section.portfolio { padding: 80px 0; background: transparent; }
+section.portfolio {
+  padding: 40px 0 20px;
+  background: transparent;
+}
 
 .portfolio-box {
   background: #f2f2f2;
   text-align: center;
-  padding: 30px 20px;
+  padding:16px 24px 28px;
   border-radius: 0;
   margin: 0 auto;
+  margin-bottom: 0;
 }
 
-.video-section { padding-bottom: 40px; }
+.video-section {
+  padding-bottom: 40px;
+}
 
 .video-container {
   position: relative;
@@ -320,12 +381,17 @@ section.portfolio { padding: 80px 0; background: transparent; }
 }
 
 .video-container iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* =========================================================
    PORTFOLIO KARUSELLI (3 näkyvissä, keskimmäinen isompi)
+   Keskitys: napit sisäreunoilla 5px
    ========================================================= */
 .carousel {
   position: relative;
@@ -348,7 +414,7 @@ section.portfolio { padding: 80px 0; background: transparent; }
   z-index: 1;
 }
 
-/* kaikki kuvat pinossa; luokat määrittävät paikat (JS lisää) */
+/* kaikki kuvat pinossa; luokat määrittävät paikat */
 .carousel-item {
   position: absolute;
   top: 0;
@@ -365,10 +431,13 @@ section.portfolio { padding: 80px 0; background: transparent; }
 }
 
 .carousel-item img {
-  display: block; width: 100%; height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+   /* 🔹 Terävöittää selaimessa: */
+  image-rendering: -webkit-optimize-contrast; /* Chrome / Edge */
+  image-rendering: crisp-edges;               /* Firefox */
   backface-visibility: hidden;
   transform: translateZ(0);
   will-change: transform;
@@ -422,14 +491,17 @@ section.portfolio { padding: 80px 0; background: transparent; }
 
 .carousel-btn.prev { left: calc(50% - 500px + 5px); }
 .carousel-btn.next { right: calc(50% - 500px + 5px); }
+
 .carousel-btn:hover { transform: translateY(-50%) scale(1.05); }
 .carousel-btn:active { transform: translateY(-50%) scale(1.0); }
 
+/* alle 1000px (max-width raja): napit 5px reunasta */
 @media (max-width: 1000px) {
   .carousel-btn.prev { left: 5px; }
   .carousel-btn.next { right: 5px; }
 }
 
+/* karusellin mobiilisäädöt */
 @media (max-width: 900px) {
   .carousel-item.is-left {
     transform: translateX(calc(-50% - 38%)) scale(0.9);
@@ -456,20 +528,23 @@ section.portfolio { padding: 80px 0; background: transparent; }
 .portfolio h2 {
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
   margin-bottom: 10px;
-  font-family: "Montserrat", sans-serif; /* heading should use Montserrat */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-top: 4px; 
 }
 
 .portfolio p {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 350;
   max-width: 700px;
   margin: 0 auto 30px auto;
   line-height: 1.6;
+  font-family: "Lora", serif;
 }
 
 .portfolio-btn {
   background-color: #333333;
-  
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   border: none;
   padding: 10px 30px;
@@ -485,20 +560,31 @@ section.portfolio { padding: 80px 0; background: transparent; }
 .portfolio-btn:active { transform: translateY(0); }
 
 @media (max-width: 560px) {
-  .portfolio-btn { width: 100%; max-width: 280px; }
+  .portfolio-btn {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 /* =========================================================
    HINNASTO / PAKETIT
    ========================================================= */
-.pricing { padding: 60px 0 80px; background: #ffffff; }
+.pricing {
+  padding: 40px 0 60px;
+  background: #ffffff;
+}
+
 
 .pricing h2 {
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
   margin-bottom: 10px;
   text-align: center;
   padding-bottom: 15px;
-  font-family: "Montserrat", sans-serif; /* heading should use Montserrat */
+}
+
+.pricing p{
+  text-align: center;
+  padding: 20px 20px 0 20px;
 }
 
 .pricing-grid {
@@ -522,12 +608,6 @@ section.portfolio { padding: 80px 0; background: transparent; }
   font-size: 1.25rem;
 }
 
-.pricing p{
-  padding-top: 20px;
-  text-align: center;
-  font-weight: 500;
-}
-
 .price-block {
   background: #f4f3f3;
   border-radius: 12px;
@@ -536,9 +616,15 @@ section.portfolio { padding: 80px 0; background: transparent; }
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
+.price-block h4 {
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
 
-.price-block h4 { margin: 0 0 4px 0; font-weight: 700; }
-.price-block p { margin: 0; line-height: 1.4; font-weight: 200;}
+.price-block p {
+  margin: 0;
+  line-height: 1.4;
+}
 
 .features {
   list-style: disc;
@@ -572,15 +658,25 @@ section.portfolio { padding: 80px 0; background: transparent; }
 .btn-quote:hover { transform: translateY(-2px); }
 .btn-quote:active { transform: translateY(0); }
 
+/* Hinnaston responsiivisuus */
 @media (max-width: 980px) {
-  .pricing-grid { grid-template-columns: 1fr; gap: 18px; }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
   .features { max-width: 420px; }
+
+  
+  
 }
 
 /* =========================================================
    PROSESSI / NÄIN ETENEMME
    ========================================================= */
-.process { background: transparent; padding: 48px 0 56px 0; }
+.process {
+  background: transparent;
+  padding: 48px 0 56px 0;
+}
 
 .process .container {
   width: 90%;
@@ -592,10 +688,13 @@ section.portfolio { padding: 80px 0; background: transparent; }
   border-radius: 0;
 }
 
-.process h2 { margin: 0 0 24px 0; font-weight: 700; font-family: "Montserrat", sans-serif; }
+.process h2 {
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
 
 .process-grid {
-  list-style: none; /* HTML:ssa on <ol>, piilotetaan numerot */
+  list-style: none;
   padding: 0;
   margin: 0 auto;
   display: grid;
@@ -628,7 +727,11 @@ i {
   align-items: center;
 }
 
-.process-step h3 { margin: 0 0 6px 0; font-weight: 700; }
+.process-step h3 {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
 .process-step p {
   margin: 0;
   line-height: 1.55;
@@ -639,6 +742,7 @@ i {
   color: #2b2b2b;
 }
 
+/* Prosessin responsiivisuus */
 @media (max-width: 980px) {
   .process-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -757,8 +861,16 @@ i {
   opacity: 0.9;
 }
 
+/* Footer responsiivisuus */
 @media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .footer-brand { display: grid; justify-items: center; margin-top: 0; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .footer-brand {
+    display: grid;
+    justify-items: center;
+    margin-top: 0;
+  }
   .footer-tagline { max-width: 28ch; }
 }
