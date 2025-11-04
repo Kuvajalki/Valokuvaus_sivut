@@ -581,6 +581,12 @@ section.portfolio {
   padding-bottom: 15px;
 }
 
+.pricing p {
+  
+  padding: 0 16px 24px 16px;
+  text-align: center;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
