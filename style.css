@@ -2,19 +2,41 @@
 /* ================== YLEISET ASETUKSET ===================== */
 /* ========================================================= */
 
+html,
+body {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
   color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
 }
 
-body h2, body h3, body h4 {
+body h2,
+body h3,
+body h4 {
   font-family: "Montserrat", serif;
 }
 
 body p {
   font-family: "Lora", serif;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-bottom: 40px; /* tilaa footerille */
 }
 
 .container {
@@ -23,21 +45,28 @@ body p {
   margin: 0 auto;
 }
 
-main {
-  padding-bottom: 40px; /* tilaa footerille */
+/* Pienillä näytöillä hieman suurempi riviväli ja marginaalit */
+@media (max-width: 560px) {
+  body {
+    line-height: 1.55;
+  }
+  .container {
+    width: 92%;
+  }
 }
 
 /* ========================================================= */
 /* ================== NAVIGAATIO ============================ */
 /* ========================================================= */
 
-/* Päänavin tyyli */
 .navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
 
 /* Navin sisältö (logo + linkit samalle riville) */
@@ -45,12 +74,15 @@ main {
   display: flex;
   justify-content: space-between; /* Logo vasemmalle, linkit oikealle */
   align-items: center;
+  gap: 12px;
   padding: 1rem 0;
 }
 
 /* Logo vasemmalle */
 .site-brand img {
   height: 60px;
+  width: auto;
+  display: block;
 }
 
 /* Navilinkit (desktop-näkymä) */
@@ -62,30 +94,52 @@ main {
   padding: 0;
 }
 
-.nav-link {
+.navbar-nav .nav-link {
+  position: relative;
   text-decoration: none;
   color: #222;
   font-weight: 500;
+  padding-bottom: 4px;
   transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-  color: #b97c2c; /* korosta hoverissa */
-  text-decoration: underline;
+/* Alleviivaus-efekti hoverissa */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #b97c2c;
+  border-radius: 3px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
 }
 
-/* Hamburger-nappi (piilotetaan desktopissa) */
+.navbar-nav .nav-link:hover {
+  color: #b97c2c;
+}
+
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Hamburger-nappi (mobiili) */
 #navbar-show-btn,
 #navbar-close-btn {
   background: none;
   border: none;
   color: #222;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1;
   cursor: pointer;
   display: none; /* näkyy vain mobiilissa */
 }
 
-/* Collapsible menu (mobiili) */
+/* Desktopissa valikko näkyy rivillä */
 #navbar-collapse {
   display: flex;
 }
@@ -95,25 +149,23 @@ main {
 /* ========================================================= */
 
 @media (max-width: 768px) {
-  /* Piilota desktop-linkit oletuksena mobiilissa */
+  #navbar-show-btn {
+    display: block;
+  }
+
   #navbar-collapse {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
-    height: 100%;
+    width: min(92vw, 320px);
+    height: 100dvh; /* varma koko mobiilissa */
     background: #fff;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    padding: 2rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 1.25rem;
     transition: right 0.3s ease;
-  }
-
-  /* Näytä avaus- ja sulkunapit */
-  #navbar-show-btn {
-    display: block;
   }
 
   #navbar-close-btn {
@@ -131,13 +183,19 @@ main {
   /* Linkit pystysuunnassa mobiilissa */
   .navbar-nav {
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 3rem;
+    gap: 1.25rem;
+    margin-top: 3.25rem;
   }
 
   .nav-link {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
+}
+
+/* Jos sivulla käytetään ankkureita kiinteän navin kanssa */
+#galleria,
+#hinnasto {
+  scroll-margin-top: 80px;
 }
 
 /* ========================================================= */
@@ -149,6 +207,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 4rem 0;
+  margin-top: 80px; /* kompensoi fixed-navia yläreunassa */
 }
 
 .about-content {
@@ -185,7 +244,6 @@ main {
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  
 }
 
 /* ========================================================= */
@@ -209,85 +267,57 @@ main {
   justify-content: center;
 }
 
-/* Kortin rakenne */
 .service-card {
   width: 220px;
   height: 480px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
   overflow: hidden;
+  position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Taustakuva pseudo-elementtinä (nyt mustavalkoinen alussa) */
-.service-card::before {
-  content: "";
+/* Varsinainen kuva */
+.service-card img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease, filter 0.5s ease; /* lisätty filterin animaatio */
-  z-index: 0;
-  transform: scale(1);
-  filter: grayscale(100%); /* tekee kuvasta mustavalkoisen aluksi */
+  object-fit: cover;
+  top: 0;
+  left: 0;
+
+  /* mustavalkoinen lähtötilanne */
+  filter: grayscale(10%);
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* Hover: kortti nousee ja kuva zoomaa sekä palauttaa värit */
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-}
-
-.service-card:hover::before {
+/* Hover-animaatio */
+.service-card:hover img {
   transform: scale(1.1);
-  filter: grayscale(0%); /* palauttaa värit hoverissa */
+  filter: grayscale(0%);
 }
 
-/* Otsikko kortin alaosassa */
+/* Otsikkopalkki */
 .service-card h3 {
-  position: relative;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  padding: 1rem 0;
   margin: 0;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  z-index: 2;
   font-weight: 600;
+  text-align: center;
   transition: background 0.3s ease;
 }
 
 .service-card:hover h3 {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
 }
 
-/* ========================================================= */
-/* ============ KORTTIEN YKSILÖLLISET KUVAT ================ */
-/* ========================================================= */
-
-.kortti-haat::before {
-  background-image: url("../img/Haat-pysty.jpg");
-}
-
-.kortti-juhlat::before {
-  background-image: url("../img/Juhlat-pysty.jpg");
-}
-
-.kortti-yritykset::before {
-  background-image: url("../img/Yritykset-pysty.jpg");
-}
-
-.kortti-artistit::before {
-  background-image: url("../img/Artistit-pysty.jpg");
-}
-
-.kortti-henkilo::before {
-  background-image: url("../img/Henkilokuvat-pysty.jpg");
-}
 
 /* ========================================================= */
 /* ================== RESPONSIVISUUS ======================== */
@@ -297,6 +327,10 @@ main {
   .about-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .about-image {
+    padding-left: 0;
   }
 
   .about-image img {
@@ -309,21 +343,25 @@ main {
   }
 }
 
-/* ---------- FOOTER ---------- */
+/* ========================================================= */
+/* ====================== FOOTER ============================ */
+/* ========================================================= */
 
 .site-footer {
-  background: #a79f93;              /* taustan sävy – säädä halutuksi */
-  color: #1d1d1b;                    /* teksti tumma */
-  padding: 2.5rem 0 1.25rem;
-  border-top: 1px solid #1d1d1b;     /* ohut viiva aivan yläreunaan */
+  background: #a79f93;
+  color: #1d1d1b;
+  padding: 2.5rem 0 1.25rem 0;
+  border-top: 1px solid #1d1d1b;
+  margin-top: auto;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 tasalevyistä saraketta */
-  gap: 2rem;
-  justify-content: center;   /* keskittää koko rivin containerin sisällä */
-  align-items: start;        /* sisältö alkaa ylhäältä */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
   text-align: center;
 }
 
@@ -333,10 +371,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand {
+  margin-top: -14px;
 }
 
 .footer-logo {
-  height: 48px;                      /* footerissa hieman pienempi/kompakti */
+  height: 48px;
   width: auto;
   display: block;
   margin-bottom: 0.75rem;
@@ -351,12 +394,10 @@ main {
 }
 
 .site-footer h4 {
-  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 700;
-  text-align: center;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.75rem 0;
 }
 
 .footer-services ul,
@@ -366,9 +407,10 @@ main {
   padding: 0;
 }
 
-.footer-services ul li {
-  text-align: center;
-  margin: 0.25rem 0;
+.footer-services ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .footer-services a {
@@ -382,7 +424,6 @@ main {
   text-decoration: underline;
 }
 
-/* Sosiaalilinkit ikonirivinä */
 .footer-social ul {
   display: flex;
   gap: 0.75rem;
@@ -397,24 +438,27 @@ main {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 6px;
-  border: 1px solid #1d1d1b;
-  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
 }
 
 .footer-social a:hover {
-  background: #1d1d1b;
-  color: #a79f93;
   transform: translateY(-2px);
+}
+
+.footer-social i {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-rule {
   border: none;
-  border-top: 1px solid #6f6a62;  /* ohut harmaa viiva */
-  margin: 1.75rem 0 0.75rem;
+  border-top: 1px solid #6f6a62;
+  margin: 1.75rem auto 0.75rem auto;
   width: min(720px, 90%);
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .footer-bottom {
@@ -426,12 +470,13 @@ main {
 /* ---------- Footerin responsiivisuus ---------- */
 @media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr;   /* pinotaan */
-    text-align: center;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .footer-brand {
     display: grid;
     justify-items: center;
+    margin-top: 0;
   }
   .footer-tagline {
     max-width: 28ch;
