@@ -16,7 +16,7 @@ export async function handler(event, context) {
     const FROM_EMAIL = "noreply@YOUR-MAILERSEND-DOMAIN.com";
 
     // *** MINNE POSTI LÄHETETÄÄN ***
-    const TO_EMAIL = "sinun.sahkoposti@jokin.fi";
+    const TO_EMAIL = "eel00016@laurea.fi";
 
     const payload = {
       from: {
