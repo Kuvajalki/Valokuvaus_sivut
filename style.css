@@ -245,12 +245,16 @@ main {
 .about-image {
   flex: 1;
   min-width: 280px;
-  padding-left: 50px;
+  padding-left: 12px;
+  display: flex;
+  justify-content: flex-end;
+  transform: none; /* remove the translateX nudge so edges line up */
 }
 
 .about-image img {
-  width: 80%;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 500px; /* adjust this to match the visual size of your cards */
+  border-radius: 5px;
   object-fit: cover;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
