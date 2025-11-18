@@ -13,7 +13,7 @@ export async function handler(event, context) {
     // *** TÄRKEÄ ***
     // Vaihda tähän MailerSend domainisi "from:" osoite,
     // esim: noreply@trial-1234abcd.mlsender.net
-    const FROM_EMAIL = "noreply@YOUR-MAILERSEND-DOMAIN.com";
+    const FROM_EMAIL = "noreply@test-86org8ek9e0gew13.mlsender.net";
 
     // *** MINNE POSTI LÄHETETÄÄN ***
     const TO_EMAIL = "eel00016@laurea.fi";
