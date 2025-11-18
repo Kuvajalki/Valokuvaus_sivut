@@ -223,8 +223,13 @@ main {
 }
 
 .about-text h2 {
-  font-weight: 600;
-  margin-bottom: 1rem;
+  margin: -4px 0 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+  color: #1d1d1b;
+  max-width: 30ch;
+  font-family: "Montserrat", sans-serif;
 }
 
 .about-text p {
