@@ -1,13 +1,18 @@
 /* =========================================================
-   YLEISET ASETUKSET
+   YLEISET ASETUKSET (responsiivinen perusta)
    ========================================================= */
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+
 
 body {
   margin: 0;
@@ -17,7 +22,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; /* iOS zoom -bugien ehkäisy */
+  
 }
 
 body h2, body h3, body h4 {
@@ -39,6 +45,7 @@ main {
   margin: 0 auto;
 }
 
+/* Pienillä näytöillä hieman suurempi riviväli ja marginaalit */
 @media (max-width: 560px) {
   body { line-height: 1.55; }
   .container { width: 92%; }
@@ -111,6 +118,7 @@ main {
   transform-origin: left;
 }
 
+/* Hampurilainen ja sulkunappi (mobiilissa näkyviin) */
 #navbar-show-btn,
 #navbar-close-btn {
   background: none;
@@ -122,25 +130,30 @@ main {
   display: none;
 }
 
+/* Desktopissa valikko näkyy rivillä */
 #navbar-collapse {
   display: flex;
 }
 
-/* MOBIILINAVI */
+/* =========================================================
+   MOBIILINAVI
+   ========================================================= */
 @media (max-width: 768px) {
-  #navbar-show-btn { display: block; }
+  #navbar-show-btn {
+    display: block;
+  }
 
   #navbar-collapse {
     position: fixed;
     top: 0;
     right: -100%;
     width: min(92vw, 320px);
-    height:100dvh;
+    height:100dvh; /* varma koko mobiilissa */
     background: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
-    justify-content:flex-start;
-    align-items:flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 2rem 1.25rem;
     transition: right 0.3s ease;
   }
@@ -152,26 +165,39 @@ main {
     right: 1rem;
   }
 
-  #navbar-collapse.open { right: 0; }
+  /* JS lisää .open kun valikko avataan */
+  #navbar-collapse.open {
+    right: 0;
+  }
 
   .navbar-nav {
     flex-direction: column;
     gap: 1.25rem;
     margin-top: 3.25rem;
   }
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+}
+
+/* Korjaus ankkurihyppäykselle kiinteän navin kanssa */
+#galleria,
+#hinnasto {
+  scroll-margin-top: 80px;
 }
 
 /* =========================================================
-   HERO
+   HERO-OSIO
    ========================================================= */
 .hero-header {
   background: #ffffff;
-  padding: 0 0 60px;
+  padding: 0 0 20px; /* muutettu 60px -> 20px */
 }
 
 .hero-header .container {
-   padding: 0 16px; 
-  }
+  padding: 0 16px;
+}
 
 .hero-wrap {
   display: grid;
@@ -200,6 +226,7 @@ main {
   font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
   color: #1d1d1b;
   max-width: 30ch;
+  font-family: "Montserrat", sans-serif;
 }
 
 .hero-copy h2 {
@@ -222,20 +249,31 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 44px;          /* kosketusystävällinen */
   padding: 10px 18px;
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   border: 0;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
-.btn:hover { transform: translateY(-1px); }
+.btn:hover {
+  transform: translateY(-1px);
+}
 
-.btn--dark { background:#333;color:#fff; }
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--dark {
+  background: #333333;
+  color: #fff;
+}
+
 .btn--light {
-  background:#fff;color:#222;
+  background: #ffffff;
+  color: #222;
   box-shadow: inset 0 0 0 1px #d9d9d9;
 }
 
@@ -253,24 +291,83 @@ main {
   background-color: #ececec;
 }
 
-/* RESPONSIVE HERO */
-@media (max-width:980px) {
-  .hero-wrap { grid-template-columns:1fr; padding:24px; text-align:center; min-height:auto; }
-  .hero-copy { padding:80px 28px 40px; }
-  .hero-actions { justify-content:center; }
-  .hero-copy h1 { max-width:60ch; }
-  .hero-media img { height: clamp(260px,55vw,360px); }
+/* Hero responsiivisuus */
+@media (max-width: 980px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 0;
+    min-height: auto;
+    height: auto;              
+  }
+
+  .hero-copy {
+    padding: 130px 24px 48px 24px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-copy h1,
+  .hero-copy h2 {
+    max-width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Piilotetaan kuva kokonaan mobiilissa */
+  .hero-media {
+    display: none;
+  }
+}
+
+/* Tarkempi korjaus alle 420px */
+@media (max-width: 420px) {
+  .hero-copy {
+    padding: 110px 16px 20px 16px;  
+  }
+
+  .hero-copy h1 {
+    font-size: 1.5rem;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  .hero-copy h2 {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 /* =========================================================
-   Intro
+   INTROTEKSTI (tukee #teksti1 tai .intro)
    ========================================================= */
+
 #intro {
   text-align: center;
   line-height: 1.6;
   padding: 16px 20px 0 20px;
   margin: 0 auto;
   max-width: 800px;
+  width: 100%; /* varmistaa että ei ylitä containeria */
+  box-sizing: border-box; /* padding lasketaan leveyteen */
 }
 
 #intro h2 {
@@ -286,11 +383,33 @@ main {
   line-height: 1.6;
 }
 
+/* Responsiivisuus: pienemmät marginaalit kapeilla näytöillä */
+@media (max-width: 1200px) {
+  #intro {
+    max-width: 90%;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  #intro {
+    max-width: 92%;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  #intro {
+    max-width: 95%;
+    padding: 0 10px;
+  }
+}
+
 /* =========================================================
    PORTFOLIO
    ========================================================= */
 section.portfolio {
-  padding: 40px 0 20px;
+  padding: 30px 0 20px; /* muutettu 40px -> 20px */
   background: transparent;
 }
 
@@ -376,6 +495,12 @@ section.portfolio {
   backface-visibility: hidden;
   transform: translateZ(0);
   will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    left: 35%;
+  }
 }
 
 /* keskellä */
@@ -465,7 +590,6 @@ section.portfolio {
   margin-bottom: 10px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  margin-top: 4px; 
 }
 
 .portfolio p {
@@ -502,10 +626,10 @@ section.portfolio {
 }
 
 /* =========================================================
-   HINNASTO
+   HINNASTO / PAKETIT
    ========================================================= */
 .pricing {
-  padding: 40px 0 60px;
+  padding: 0px 0 20px;
   background: #ffffff;
 }
 
@@ -515,9 +639,11 @@ section.portfolio {
   text-align: center;
   padding-bottom: 15px;
 }
-.pricing p{
+
+.pricing p {
+  
+  padding: 0 16px 24px 16px;
   text-align: center;
-  padding: 20px 20px 0 20px;
 }
 
 .pricing-grid {
@@ -608,7 +734,7 @@ section.portfolio {
    ========================================================= */
 .process {
   background: transparent;
-  padding: 48px 0 56px 0;
+  padding: 18px 0 15px 0;
 }
 
 .process .container {
